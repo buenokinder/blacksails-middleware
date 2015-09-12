@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://paytrue.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://paytrue.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://paytrue.com/">
+      <s:element name="GetCurrentSells">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCurrentSellsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentSellsResult" type="tns:SellsResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SellsResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="HasError" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantSells" type="tns:ArrayOfMerchantSellsDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfMerchantSellsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MerchantSellsDTO" nillable="true" type="tns:MerchantSellsDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MerchantSellsDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovedTrxsCount" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="RejectedTrxsCount" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovedTrxsAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RejectedTrxsAmount" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCurrentSellsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentSells" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentSellsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentSellsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SellsSoap">
+    <wsdl:operation name="GetCurrentSells">
+      <wsdl:input message="tns:GetCurrentSellsSoapIn" />
+      <wsdl:output message="tns:GetCurrentSellsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SellsSoap" type="tns:SellsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentSells">
+      <soap:operation soapAction="http://paytrue.com/GetCurrentSells" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SellsSoap12" type="tns:SellsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentSells">
+      <soap12:operation soapAction="http://paytrue.com/GetCurrentSells" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Sells">
+    <wsdl:port name="SellsSoap" binding="tns:SellsSoap">
+      <soap:address location="http://localhost:6078/TestWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SellsSoap12" binding="tns:SellsSoap12">
+      <soap12:address location="http://localhost:6078/TestWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

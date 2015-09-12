@@ -1,0 +1,165 @@
+
+.x-grid-row  .x-tree-icon-leaf {
+    background-image:url('../icons/drawing.png');
+}
+
+/* Toolbars */
+.x-tab-default-top {
+	color: #333333;
+	border-color: #CCCCCC;
+	font-weight: normal;
+	background-image: none!important;
+	background-color: #CCCCCC;
+	border-width: 0px;
+	-moz-border-radius-topleft: 0px;
+	-webkit-border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
+	-moz-border-radius-topright: 0px;
+	-webkit-border-top-right-radius: 0px;
+	border-top-right-radius: 0px;
+	box-shadow: none;
+	webkit-box-shadow: none;	
+	padding: 3px 9px 5px 9px;
+}
+
+.x-tab-default-bottom {
+	color: #333333;
+	border-color: #CCCCCC;
+	font-weight: normal;
+	background-image: none!important;
+	background-color: #CCCCCC;
+}
+
+.x-tab-default-top-active {
+	color: #000000;
+	font-weight: normal;
+	background-image: none!important;
+	background-color: #F0F0F0;
+	border-bottom-color: #F0F0F0;
+}
+
+.x-tab-default-bottom-active {
+	color: #000000;
+	font-weight: normal;
+	background-image: none!important;
+	background-color: #F0F0F0;
+}
+
+.x-tab-default .x-tab-inner {
+	font-weight: normal;
+}
+
+#north .x-tab-default .x-tab-inner {
+	color: #333333;
+	font-weight: normal;
+	border-color: #CCCCCC;
+	line-height: 15px;
+}
+
+#north .x-tab-default .x-tab-inner {
+	font-size: 10pt;
+}
+
+.x-tab-default-active .x-tab-inner {
+	color: #000000;
+}
+
+#north .x-tab-bar-strip-default {
+	background: none;
+	border: none;
+}
+
+#north .x-tab-bar-plain {
+	height : 23px;
+}
+
+#north .x-toolbar-default {
+	border: none;
+	background: #F0F0F0;
+}
+
+.x-tab-bar-body-default-top {
+	background-color: #CCCCCC;
+	padding-bottom: 0px;
+}
+
+#north .x-tab-bar-strip-default-top {
+	height : 0px;
+}
+
+#jsgtoolbartabs .x-panel-body-default {
+	border-width: 0px;
+}
+
+
+
+
+
+.x-panel-header-default {
+	background-image: none;
+	background-color: #404040;
+	border: 1px solid #F0F0F0;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.x-panel-header-text-container-default {
+	font-size : 9pt;
+	font-weight : normal;
+	color : #FFFFFF;
+}
+
+
+
+div#statustoolbar.x-toolbar-default {
+	background-image: none;
+	background-color: #FFFFFF;
+}
+
+.x-color-picker {
+	background: transparent;
+	border-style: none;
+}
+
+.x-color-picker-item {
+	width: 22px;
+	height: 22px;
+	background: transparent;
+	border-color: transparent;
+	padding : 1px;
+/*	border-style: none;*/
+}
+
+.x-color-picker-item-inner {
+	line-height: 16px;
+}
+
+.x-form-item-label {
+	font: normal 8pt tahoma,arial,verdana,sans-serif;
+	margin-top: 2px;
+}
+
+.x-btn.my-over {
+    background: blue;
+}
+
+.x-accordion-item .x-accordion-hd {
+	background-color: #707070;
+}
+
+.x-accordion-hd .x-panel-header-text-container {
+	color: #FFFFFF;
+	
+}
+
+.x-accordion-hd .x-tool-img {
+	background-color: transparent; 
+}
+/*Ext is not consistent */
+.x-btn.x-btn-my-pressed {
+    background: red;
+}
+
+.x-btn-default-toolbar-medium-disabled {
+	border-color: transparent; 
+}

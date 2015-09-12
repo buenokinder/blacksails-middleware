@@ -1,0 +1,19 @@
+[
+  {
+    "text": "Main Navigation",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+
+    {
+        "text": "Sistema",
+        "sref": "app.sistema-lista",
+        "icon": "icon-grid"
+        
+    },
+    {
+        "text": "API",
+        "sref": "app.api",
+        "icon": "icon-grid"
+    }
+]

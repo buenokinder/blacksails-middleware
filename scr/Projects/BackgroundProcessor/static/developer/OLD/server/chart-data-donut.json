@@ -1,0 +1,21 @@
+[ { "color" : "#4acab4",
+    "data" : 30,
+    "label" : "jQuery"
+  },
+  { "color" : "#ffea88",
+    "data" : 40,
+    "label" : "CSS"
+  },
+  { "color" : "#ff8153",
+    "data" : 90,
+    "label" : "LESS"
+  },
+  { "color" : "#878bb6",
+    "data" : 75,
+    "label" : "SASS"
+  },
+  { "color" : "#b2d767",
+    "data" : 120,
+    "label" : "Jade"
+  }
+]

@@ -1,0 +1,90 @@
+﻿.Normal {
+  color: black;
+}
+
+.Error {
+  color: red;
+}
+
+.ERROR {
+  color: red;
+}
+
+.DEBUG {
+  color: gray;
+
+}
+.Paused {
+  color: brown;
+}
+.Complete {
+  color: green;
+}
+
+#header h1 {
+    display: inline-block;
+}
+#search {
+    margin-top: 25px;
+    text-align: right;
+}
+#search.col-sm-4 {
+    float: right;
+}
+
+
+.clearable {
+	background-image:
+		url(data:image/gif;base64,R0lGODlhBwAHAIAAAP///5KSkiH5BAAAAAAALAAAAAAHAAcAAAIMTICmsGrIXnLxuDMLADs=);
+	background-repeat: no-repeat;
+	background-attachment: initial;
+	background-position: right -10px center;
+	transition: background 0.4s;
+}
+.clearable.x {
+	background-position: right 10px center;
+}
+.clearable.onX {
+	cursor: pointer;
+}
+.badge-danger {
+    color: #ffffff;
+    background-color: #a83110;
+}
+.list-group {
+	margin: 10px 0 10px 0;
+}
+li.list-group-item {
+	min-height: 50px;
+}
+li.list-group-item:hover, li.list-group-item:focus {
+    color: #31708f;
+    text-decoration: none;
+    background-color: #d9edf7;
+}
+li.list-group-item button.not-visible {
+	display: none;
+}
+li.list-group-item:hover button.not-visible, li.list-group-item button.visible {
+	display: inline-block;
+	float: right
+}
+li.list-group-item-head,
+li.list-group-item-head:hover, li.list-group-item-head:focus {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+footer {
+	background-color: #EEEEEE;
+	border-bottom: 1px solid #F3F3F3;
+	border-top: 1px solid #D6D6D6;
+	overflow: hidden;
+	min-height: 54px;
+	height: auto;
+	margin: 10px auto 20px;
+}
+footer div span {
+	float: left;
+	margin-top: 10px;
+}

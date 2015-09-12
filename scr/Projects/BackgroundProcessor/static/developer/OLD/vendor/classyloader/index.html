@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>ClassyLoader jQuery plugin | Class.PM</title>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic" />
+        <link rel="stylesheet" href="css/documentation.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/jquery.classyloader.min.js"></script>
+    </head>
+    <body>
+        <div id="page-container">
+            <div id="main-container">
+                <div id="page-content">
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>ClassyLoader<br><small>Beautiful loaders? Hell yea!</small></h1>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li><a href="http://www.class.pm/"><i class="fa fa-home"></i> Class.PM</a></li>
+                        <li><a href="http://www.class.pm/#jquery">jQuery plugins</a></li>
+                        <li>ClassyLoader</li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="block">
+                                <div class="block-title">
+                                    <h2>Introduction</h2>
+                                </div>
+                                <div class="clearfix">
+                                    <p>ClassyLoader is a <a href="http://www.jquery.com">jQuery</a> plugin written by <a href="http://www.class.pm">Marius Stanciu - Sergiu</a>, a plugin that lets your add beautiful and animated loaders to your website.</p>
+                                    <ul>
+                                        <li>Beautifully animated</li>
+                                        <li>Cross-browser compatible</li>
+                                        <li>Lightweight & ultra customisable</li>
+                                        <li>Minimal coding required – simply include the Javascript file</li>
+                                        <li>Easy to customize</li>
+                                    </ul>
+                                    <p>
+                                        <a href="http://www.class.pm/cloud/public.php?service=files&t=f458f0d7a2034bf4b6e6b0851be017e0&download" class="btn btn-primary">
+                                            <i class="fa fa-folder-open"></i> Download it
+                                        </a>
+                                    </p>
+                                    <div class="alert alert-info">
+                                        <h4><i class="fa fa-info-circle"></i> License</h4>
+                                        This jQuery plugin is distributed under the <a href="http://www.class.pm/LICENSE-MIT">MIT license</a>. Enjoy!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="block">
+                                <div class="block-title">
+                                    <h2>Demo</h2>
+                                </div>
+                                <div class="clearfix">
+                                    <canvas class="loader"></canvas>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('.loader').ClassyLoader({
+                                                percentage: 100,
+                                                speed: 20,
+                                                fontSize: '50px',
+                                                diameter: 80,
+                                                lineColor: 'rgba(155,155,155,1)',
+                                                remainingLineColor: 'rgba(200,200,200,0.4)',
+                                                lineWidth: 10
+                                            });
+                                        });
+                                    </script>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="block">
+                                <div class="block-title">
+                                    <h2>Setup</h2>
+                                </div>
+                                <div class="clearfix">
+                                    <p>First you need to include the jQuery library, since ClassyLoader is a plugin. You can download it from the jQuery website or link it directly from the Google CDN.</p>
+                                    <pre>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;</pre>
+                                    <p>Secondly, you need to include the jQuery ClassyLoader javascript, which you can do it by adding the code below to your page.</p>
+                                    <pre>&lt;script src="js/jquery.classyloader.min.js"&gt;&lt;/script&gt;</pre>
+                                    <p>Next, you create the canvas element on which you want to trigger the plugin.</p>
+                                    <pre>&lt;canvas class="loader"&gt;&lt;/canvas&gt;</pre>
+                                    <p>As the last step, you trigger the plugin on the element you just created. In this case, we trigger it on the element with the class loader.</p>
+                                    <pre>$('.loader').ClassyLoader();</pre>
+                                    <p>If you want to manually trigger the loader, you can do it like this:</p>
+                                    <pre>&lt;canvas class="loader"&gt;&lt;/canvas&gt;</pre>
+                                    <pre>var loader = $('.loader').ClassyLoader({
+    animate: false,
+    percentage: 0
+});</pre>
+                                    <p>This will show the loader at 0%, but not animate it. You can animate the loader by using the <em>draw()</em> method and specify the percent to draw. For example:</p>
+                                    <pre>$('.customtrigger').on('click', function() {
+    loader.setPercent(100).draw();
+});
+</pre>
+                                    <p>You can also use this shortened version:</p>
+                                    <pre>$('.customtrigger').on('click', function() {
+    loader.draw(100);
+});
+</pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="block">
+                                <div class="block-title">
+                                    <h2>Options</h2>
+                                </div>
+                                <div class="clearfix">
+                                    <ul class="fa-ul">
+                                        <li>
+                                            <h3>Parameters</h3>
+                                            <hr />
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">width</span> - width of the loader in pixels, default is <span class="label label-primary">200</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">height</span> - height of the loader in pixels, default is <span class="label label-primary">200</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">animate</span> - whether to animate the loader or not, default is <span class="label label-primary">true</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">percentage</span> - percent of the value, between 0 and 100, default is <span class="label label-primary">100</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">speed</span> - miliseconds between animation cycles, lower value is faster, default is <span class="label label-primary">1</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">showRemaining</span> - show the remaining percentage (100% - percentage), default is <span class="label label-primary">true</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">fontFamily</span> - name of the font for the percentage, default is <span class="label label-primary">Helvetica</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">showText</span> - whether to display the percentage text, default is <span class="label label-primary">true</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">fontSize</span> - size of the percentage font, in pixels, default is <span class="label label-primary">50px</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">roundedLine</span> - whether the line is rounded, in pixels, default is <span class="label label-primary">false</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">diameter</span> - diameter of the circle, in pixels, default is <span class="label label-primary">80</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">fontColor</span> - color of the font in the center of the loader, any CSS color would work, hex, rgb, rgba, hsl, hsla, default is <span class="label label-primary">rgba(25, 25, 25, 0.6)</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">lineColor</span> - line color of the main circle, default is <span class="label label-primary">rgba(55, 55, 55, 1)</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">remainingLineColor</span> - line color of the remaining percentage (if showRemaining is true), default is <span class="label label-primary">rgba(55, 55, 55, 0.4)</span>
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">lineWidth</span> - the width of the circle line in pixels, default is <span class="label label-primary">5</span>
+                                        </li>
+                                        <li>
+                                            <h3>Methods</h3>
+                                            <hr />
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">show()</span> - method that displays the initial loader but does not animate it. For ex. you can use the <em>show()</em> method to display the loader at 0% and animate it by using the <em>draw()</em> method after you set the percent to load
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">draw()</span> - animate the loader to the specified percentage
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">setPercent()</span> - sets the percentage value of the loader, so you can use the <em>draw()</em> method afterwards to animate the loader
+                                        </li>
+                                        <li>
+                                            <span class="label label-danger">getPercent()</span> - returns the percentage value of the loader
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="block">
+                                <div class="block-title">
+                                    <h2>Example</h2>
+                                </div>
+                                <div class="clearfix">
+                                    <canvas class="loader2"></canvas>
+                                    <canvas class="loader3"></canvas>
+                                    <canvas class="loader4"></canvas>
+                                    <canvas class="loader5"></canvas>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('.loader2').ClassyLoader({
+                                                percentage: 60,
+                                                speed: 8,
+                                                diameter: 50,
+                                                fontSize: '20px',
+                                                showText: false,
+                                                roundedLine: true,
+                                                fontColor: 'rgba(73, 125, 164, 0.3)',
+                                                lineColor: 'rgba(73, 125, 164, 1)',
+                                                remainingLineColor: 'rgba(73, 125, 164, 0.1)',
+                                                lineWidth: 40
+                                            });
+                                            $('.loader3').ClassyLoader({
+                                                speed: 40,
+                                                fontSize: '36px',
+                                                fontFamily: 'Georgia',
+                                                fontColor: 'rgba(0,0,0,0.4)',
+                                                lineColor: 'rgba(255,0,0,0.4)',
+                                                lineWidth: 1,
+                                                remainingLineColor: 'rgba(0,0,0,0.1)'
+                                            });
+                                            $('.loader4').ClassyLoader({
+                                                speed: 20,
+                                                diameter: 30,
+                                                fontSize: '20px',
+                                                fontFamily: 'Georgia',
+                                                fontColor: 'rgba(0,0,0,0.4)',
+                                                lineColor: 'rgba(0,0,0,0.4)',
+                                                percentage: 34,
+                                                remainingLineColor: 'rgba(0,0,0,0.1)'
+                                            });
+                                            $('.loader5').ClassyLoader({
+                                                speed: 100,
+                                                diameter: 80,
+                                                fontSize: '30px',
+                                                fontFamily: 'Courier',
+                                                fontColor: 'rgba(0,0,0,0.4)',
+                                                lineColor: 'rgba(255,175,255,0.7)',
+                                                percentage: 80,
+                                                lineWidth: 20,
+                                                remainingLineColor: 'rgba(200,200,200,0.1)'
+                                            });
+                                        });
+                                    </script>
+                                    <pre>$('.loader2').ClassyLoader({
+    percentage: 60,
+    speed: 8,
+    diameter: 70,
+    showText: false,
+    fontSize: '20px',
+    roundedLine: true,
+    fontColor: 'rgba(73, 125, 164, 0.3)',
+    lineColor: 'rgba(73, 125, 164, 1)',
+    remainingLineColor: 'rgba(73, 125, 164, 0.1)',
+    lineWidth: 40
+});</pre>
+                                    <pre>$('.loader3').ClassyLoader({
+    speed: 40,
+    fontFamily: 'Georgia',
+    fontColor: 'rgba(0,0,0,0.4)',
+    lineColor: 'rgba(255,0,0,0.4)',
+    lineWidth: 1,
+    remainingLineColor: 'rgba(0,0,0,0.1)'
+});</pre>
+                                    <pre>$('.loader4').ClassyLoader({
+    speed: 20,
+    diameter: 30,
+    fontSize: '20px',
+    fontFamily: 'Georgia',
+    fontColor: 'rgba(0,0,0,0.4)',
+    lineColor: 'rgba(0,0,0,0.4)',
+    percentage: 34,
+    remainingLineColor: 'rgba(0,0,0,0.1)'
+});</pre>
+                                    <pre>$('.loader5').ClassyLoader({
+    speed: 100,
+    diameter: 80,
+    fontSize: '30px',
+    fontFamily: 'Courier',
+    fontColor: 'rgba(0,0,0,0.4)',
+    lineColor: 'rgba(0,0,0,0.7)',
+    percentage: 80,
+    lineWidth: 20,
+    remainingLineColor: 'rgba(200,200,200,0.1)'
+});</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="clearfix">
+                    <div class="pull-left">
+                        <span>2005 - 2014</span> © <a href="http://www.class.pm" target="_blank">Class.PM</a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-30825160-1', 'class.pm');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>

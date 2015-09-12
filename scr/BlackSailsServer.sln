@@ -1,0 +1,127 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{DEB25408-A22C-4A21-BB60-CAB8B11913DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{07A65CEE-50FD-4E61-B697-1EB53F70D8B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{198081E3-701A-406C-8B1E-EF42A5A8ED2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackSailsServer", "Projects\BackgroundProcessor\BlackSailsServer.csproj", "{DD4184E5-D533-4413-A146-92B527EB7054}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackSails.Domain", "BlackSailsServer.Domain\BackSails.Domain.csproj", "{2D928FBD-4960-4404-9CE3-B3416CC91460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackSails.Data", "BlackSailsServer.Data\BlackSails.Data.csproj", "{38D024EB-3656-4497-86AD-A4044214F73E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalckSails.Application.Contract", "BlackSails.Application.Contract\BalckSails.Application.Contract.csproj", "{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackSails.Application", "BlackSailsServer.Application\BlackSails.Application.csproj", "{6615CFD8-A0B5-4320-865C-C47E64285206}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://sennitquality.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Projects\\BackgroundProcessor\\BlackSailsServer.csproj
+		SccProjectName1 = Projects/BackgroundProcessor
+		SccLocalPath1 = Projects\\BackgroundProcessor
+		SccProjectUniqueName2 = BlackSailsServer.Domain\\BackSails.Domain.csproj
+		SccProjectTopLevelParentUniqueName2 = BlackSailsServer.sln
+		SccProjectName2 = BlackSailsServer.Domain
+		SccLocalPath2 = BlackSailsServer.Domain
+		SccProjectUniqueName3 = BlackSailsServer.Data\\BlackSails.Data.csproj
+		SccProjectTopLevelParentUniqueName3 = BlackSailsServer.sln
+		SccProjectName3 = BlackSailsServer.Data
+		SccLocalPath3 = BlackSailsServer.Data
+		SccProjectUniqueName4 = BlackSails.Application.Contract\\BalckSails.Application.Contract.csproj
+		SccProjectTopLevelParentUniqueName4 = BlackSailsServer.sln
+		SccProjectName4 = BlackSails.Application.Contract
+		SccLocalPath4 = BlackSails.Application.Contract
+		SccProjectUniqueName5 = BlackSailsServer.Application\\BlackSails.Application.csproj
+		SccProjectTopLevelParentUniqueName5 = BlackSailsServer.sln
+		SccProjectName5 = BlackSailsServer.Application
+		SccLocalPath5 = BlackSailsServer.Application
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Debug|x64.Build.0 = Debug|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Debug|x86.ActiveCfg = Debug|x86
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Debug|x86.Build.0 = Debug|x86
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Release|x64.ActiveCfg = Release|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Release|x64.Build.0 = Release|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Release|x86.ActiveCfg = Release|Any CPU
+		{DD4184E5-D533-4413-A146-92B527EB7054}.Release|x86.Build.0 = Release|Any CPU
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Debug|x64.ActiveCfg = Debug|x64
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Debug|x64.Build.0 = Debug|x64
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Debug|x86.ActiveCfg = Debug|x86
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Debug|x86.Build.0 = Debug|x86
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Release|x64.ActiveCfg = Release|x64
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Release|x64.Build.0 = Release|x64
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Release|x86.ActiveCfg = Release|x86
+		{2D928FBD-4960-4404-9CE3-B3416CC91460}.Release|x86.Build.0 = Release|x86
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Debug|x64.ActiveCfg = Debug|x64
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Debug|x64.Build.0 = Debug|x64
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Debug|x86.ActiveCfg = Debug|x86
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Debug|x86.Build.0 = Debug|x86
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Release|x64.ActiveCfg = Release|x64
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Release|x64.Build.0 = Release|x64
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Release|x86.ActiveCfg = Release|x86
+		{38D024EB-3656-4497-86AD-A4044214F73E}.Release|x86.Build.0 = Release|x86
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Debug|x64.ActiveCfg = Debug|x64
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Debug|x64.Build.0 = Debug|x64
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Debug|x86.ActiveCfg = Debug|x86
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Debug|x86.Build.0 = Debug|x86
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Release|x64.ActiveCfg = Release|x64
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Release|x64.Build.0 = Release|x64
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Release|x86.ActiveCfg = Release|x86
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104}.Release|x86.Build.0 = Release|x86
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Debug|x64.ActiveCfg = Debug|x64
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Debug|x64.Build.0 = Debug|x64
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Debug|x86.ActiveCfg = Debug|x86
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Debug|x86.Build.0 = Debug|x86
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Release|x64.ActiveCfg = Release|x64
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Release|x64.Build.0 = Release|x64
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Release|x86.ActiveCfg = Release|x86
+		{6615CFD8-A0B5-4320-865C-C47E64285206}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2D928FBD-4960-4404-9CE3-B3416CC91460} = {07A65CEE-50FD-4E61-B697-1EB53F70D8B5}
+		{38D024EB-3656-4497-86AD-A4044214F73E} = {198081E3-701A-406C-8B1E-EF42A5A8ED2D}
+		{0F71A05C-AE9E-49EF-B0AC-F9685F24C104} = {DEB25408-A22C-4A21-BB60-CAB8B11913DA}
+		{6615CFD8-A0B5-4320-865C-C47E64285206} = {DEB25408-A22C-4A21-BB60-CAB8B11913DA}
+	EndGlobalSection
+EndGlobal

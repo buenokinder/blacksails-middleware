@@ -1,0 +1,179 @@
+﻿<div id="header" class="container" role="main" ng-controller="myController">
+    <!-- Header -->
+    <div class="row page-header">
+        <div class="col-sm-8">
+            <h1>Nimbus Job Scheduler</h1>
+        </div>
+        <div id="search" class="col-sm-4 hidden-xs">
+            <form class="form-inline" role="search">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </span>
+                    <input id="searchValue" type="text" class="form-control clearable" ng-model="searchValue" ng-minlength="1" placeholder="Job  Name" title="Job Name" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+
+
+        <!-- Countries list -->
+        <accordion close-others="oneAtATime">
+            <accordion-group is-open="true">
+                <accordion-heading>
+                    Nimbus Server
+
+                </accordion-heading>
+
+                <div class="row">
+                    <div class="col-sm-6">
+
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Estatisticas</h3>
+                            </div>
+
+
+                            <div class="panel-body">
+                                <b>Running since: </b>{{scheduler.RunningSince}}<br>
+                                <b>Total Jobs: </b>{{scheduler.JobGroups.TotalJobs}}<br>
+                                <b>Executed Jobs: </b>{{scheduler.ExecutedJobs}}
+                            </div>
+
+                        </div>
+
+                    </div><!-- /.col-sm-4 -->
+                    <div class="col-sm-6">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Propriedades</h3>
+                            </div>
+                            <div class="panel-body">
+                                <b>Name: </b>{{scheduler.Name}}<br>
+                                <b>Instance ID: </b>{{scheduler.InstanceId}}<br>
+                                <b>Remote: </b>{{scheduler.IsRemote}}<br>
+
+                            </div>
+                        </div>
+
+                    </div><!-- /.col-sm-4 -->
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <br>
+                        <b>Server Status: </b><input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
+                    </div>
+                </div>
+            </accordion-group>
+            <accordion-group ng-repeat="grupo in scheduler.JobGroups.Grupos " is-open="true">
+                <accordion-heading>
+                    {{grupo.Name}}
+                </accordion-heading>
+                <ul id="countries-group" class="list-group">
+                    <li class="list-group-item list-group-item-head">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-4">
+                                <strong>Nome</strong>
+                            </div>
+                            <div class="col-md-1  col-sm-2  hidden-xs">
+                                <strong>Status</strong>
+                            </div>
+                            <div class="col-md-2  hidden-sm  hidden-xs">
+                                <strong>Data Inicio</strong>
+                            </div>
+                            <div class="col-md-2  hidden-sm  hidden-xs">
+                                <strong>Data Fim</strong>
+                            </div>
+                            <div class="col-md-2  hidden-xs  col-sm-4">
+                                <strong>Disparo Anterior</strong>
+                            </div>
+                            <div class="col-md-2  col-sm-4">
+                                <strong>Próximo Disparo</strong>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Loop on countries -->
+                    <li ng-repeat="job in grupo.Jobs " class="list-group-item">
+                        <div class="row ng-class:job.State">
+                            <div class=" col-md-2 col-sm-2 col-xs-4">
+                                <strong>{{job.NomeLegivel | uppercase}}</strong>
+                            </div>
+                            <div class="col-md-1    col-sm-2  hidden-xs">
+
+                                <div id="carouselButtons">
+                                    <button id="playButton" type="button" ng-click="setSelected()" class="btn btn-default btn-xs">
+                                        <span class="glyphicon glyphicon-folder-open"></span>
+                                    </button>
+                                    <button id="playButton" ng-hide="(job.State == 'Normal')" ng-click="setPlay()" type="button" class="btn btn-default btn-xs">
+                                        <span class="glyphicon glyphicon-play"></span>
+                                    </button>
+                                    <button id="pauseButton" ng-hide="(job.State == 'Paused')" ng-click="setPause()" type="button" class="btn btn-default btn-xs">
+                                        <span class="glyphicon glyphicon-pause"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-2 hidden-sm hidden-xs">{{job.FirstFire}}</div>
+                            <div class="col-md-2  hidden-sm  hidden-xs">{{job.LastFire}}</div>
+                            <div class="col-md-2    col-sm-4   hidden-xs">{{job.PreviousFire}}</div>
+                            <div class="col-md-2    col-sm-4 col-xs-8">{{job.NextFire}}</div>
+
+                        </div>
+                    </li>
+                </ul>
+            </accordion-group>
+        </accordion>
+    </div>
+
+
+
+    <div class="modal" id="IncluirModal" data-backdrop="static" >
+        <div class="modal-dialog modal-lg">
+            <div id="wizard-colaboradores">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Log Events for Nimbus Scheduler Job</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-content">
+
+                         
+
+                            <table id="example" class="display" data-page-length='5'  cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Level</th>
+                                        <th>Data</th>
+                                        <th>Message</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Level</th>
+                                        <th>Data</th>
+                                        <th>Message</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group ">
+                            <button class="btn btn-default" data-dismiss="modal">Fechar</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</div>
+

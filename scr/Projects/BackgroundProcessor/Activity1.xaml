@@ -1,0 +1,589 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="NimbusServer.Api.Activity3"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:local="clr-namespace:NimbusServer.Api;assembly:NimbusServer.Api"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="urlBase" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>NimbusServer.Api.Activity3_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>NimbusServer.Api</x:String>
+      <x:String>Sennit.Cryptography</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Common.Logging</AssemblyReference>
+      <AssemblyReference>Common.Logging.Core</AssemblyReference>
+      <AssemblyReference>Common.Logging.Log4Net1213</AssemblyReference>
+      <AssemblyReference>CrystalQuartz.Core</AssemblyReference>
+      <AssemblyReference>CrystalQuartz.Web</AssemblyReference>
+      <AssemblyReference>EntityFramework</AssemblyReference>
+      <AssemblyReference>EntityFramework.SqlServer</AssemblyReference>
+      <AssemblyReference>log4net</AssemblyReference>
+      <AssemblyReference>Microsoft.Owin</AssemblyReference>
+      <AssemblyReference>Microsoft.Owin.Cors</AssemblyReference>
+      <AssemblyReference>Microsoft.Owin.FileSystems</AssemblyReference>
+      <AssemblyReference>Microsoft.Owin.Host.HttpListener</AssemblyReference>
+      <AssemblyReference>Microsoft.Owin.Hosting</AssemblyReference>
+      <AssemblyReference>Microsoft.Owin.Security</AssemblyReference>
+      <AssemblyReference>Microsoft.Owin.Security.OAuth</AssemblyReference>
+      <AssemblyReference>Microsoft.Owin.StaticFiles</AssemblyReference>
+      <AssemblyReference>Nancy</AssemblyReference>
+      <AssemblyReference>Nancy.Hosting.Self</AssemblyReference>
+      <AssemblyReference>Nancy.Owin</AssemblyReference>
+      <AssemblyReference>Nancy.ViewEngines.Razor</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>Ninject</AssemblyReference>
+      <AssemblyReference>Ninject.Extensions.ContextPreservation</AssemblyReference>
+      <AssemblyReference>Ninject.Extensions.NamedScope</AssemblyReference>
+      <AssemblyReference>Ninject.Web.Common</AssemblyReference>
+      <AssemblyReference>Ninject.Web.Common.OwinHost</AssemblyReference>
+      <AssemblyReference>Ninject.Web.WebApi</AssemblyReference>
+      <AssemblyReference>Ninject.Web.WebApi.OwinHost</AssemblyReference>
+      <AssemblyReference>NVelocity</AssemblyReference>
+      <AssemblyReference>Owin</AssemblyReference>
+      <AssemblyReference>Quartz</AssemblyReference>
+      <AssemblyReference>Sennit.Cryptography</AssemblyReference>
+      <AssemblyReference>SKGL</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.DataAnnotations</AssemblyReference>
+      <AssemblyReference>System.Configuration</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data.OracleClient</AssemblyReference>
+      <AssemblyReference>System.Data.SQLite</AssemblyReference>
+      <AssemblyReference>System.Data.SQLite.EF6</AssemblyReference>
+      <AssemblyReference>System.Data.SQLite.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Net.Http</AssemblyReference>
+      <AssemblyReference>System.Net.Http.Formatting</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Web</AssemblyReference>
+      <AssemblyReference>System.Web.Cors</AssemblyReference>
+      <AssemblyReference>System.Web.Http</AssemblyReference>
+      <AssemblyReference>System.Web.Http.Cors</AssemblyReference>
+      <AssemblyReference>System.Web.Http.Owin</AssemblyReference>
+      <AssemblyReference>System.Web.Http.WebHost</AssemblyReference>
+      <AssemblyReference>System.Web.Razor</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>Topshelf</AssemblyReference>
+      <AssemblyReference>Topshelf.Ninject</AssemblyReference>
+      <AssemblyReference>WebApiContrib.Formatting.Jsonp</AssemblyReference>
+      <AssemblyReference>WFExtended</AssemblyReference>
+      <AssemblyReference>WFExtended.Twitter</AssemblyReference>
+      <AssemblyReference>NilbusServer.Application.Contract</AssemblyReference>
+      <AssemblyReference>NimbusServer.Application</AssemblyReference>
+      <AssemblyReference>NimbusServer.Data</AssemblyReference>
+      <AssemblyReference>NimbusServer.Domain</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NimbusServer.Api</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="ServicoProposta" />
+      <Variable x:TypeArguments="x:Boolean" Name="ServicoHistProposta" />
+      <Variable x:TypeArguments="x:Boolean" Name="ServicoPropostaNova" />
+      <Variable x:TypeArguments="x:Boolean" Name="ServicoPropostaMinima" />
+      <Variable x:TypeArguments="x:Boolean" Name="ServicoTransacao" />
+      <Variable x:TypeArguments="x:String" Name="ConnStringPR_Atual" />
+      <Variable x:TypeArguments="x:String" Name="ConnStringPR_Nova" />
+      <Variable x:TypeArguments="x:String" Name="ConnStringCockipit" />
+      <Variable x:TypeArguments="local:JsonReturn" Name="retornoParametros" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="postValue">
+        <Variable.Default>
+          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)">new Dictionary&lt;string, string&gt;();</mca:CSharpValue>
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Inicio" />
+    <local:HttpResponseActivity api="{x:Null}" autenticationType="{x:Null}" password="{x:Null}" username="{x:Null}" sap2010:WorkflowViewState.IdRef="HttpResponseActivity_1">
+      <local:HttpResponseActivity.retorno>
+        <OutArgument x:TypeArguments="local:JsonReturn">
+          <mca:CSharpReference x:TypeArguments="local:JsonReturn">retornoParametros</mca:CSharpReference>
+        </OutArgument>
+      </local:HttpResponseActivity.retorno>
+      <local:HttpResponseActivity.url>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">urlBase + "/api/importacao/repository/Parametros?Page=1&amp;PageSize=100&amp;parameters={}"</mca:CSharpValue>
+        </InArgument>
+      </local:HttpResponseActivity.url>
+    </local:HttpResponseActivity>
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="Retorno" />
+    <ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" DisplayName="ForEach&lt;Dictionary&lt;String,String&gt;&gt;" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+      <ForEach.Values>
+        <InArgument x:TypeArguments="scg:IEnumerable(scg:Dictionary(x:String, x:String))">
+          <mca:CSharpValue x:TypeArguments="scg:IEnumerable(scg:Dictionary(x:String, x:String))">retornoParametros.value</mca:CSharpValue>
+        </InArgument>
+      </ForEach.Values>
+      <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:String)">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="item" />
+        </ActivityAction.Argument>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_14">
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">"Entrada" + item["vlrparametro"].ToString()</mca:CSharpValue>
+            </InArgument>
+          </WriteLine>
+          <Flowchart sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart.StartNode>
+              <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
+                <FlowSwitch.Expression>
+                  <mca:CSharpValue x:TypeArguments="x:String">item["nomeparametro"].ToString()</mca:CSharpValue>
+                </FlowSwitch.Expression>
+                <FlowStep x:Key="servico01" x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpReference x:TypeArguments="x:Boolean">ServicoTransacao</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpValue x:TypeArguments="x:Boolean">Convert.ToBoolean(item["vlrparametro"])</mca:CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </FlowStep>
+                <FlowStep x:Key="servico02" x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                  <Assign DisplayName="Assign Proposta" sap2010:WorkflowViewState.IdRef="Assign_10">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpReference x:TypeArguments="x:Boolean">ServicoProposta</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpValue x:TypeArguments="x:Boolean">Convert.ToBoolean(item["vlrparametro"])</mca:CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </FlowStep>
+                <FlowStep x:Key="servico03" x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_3">
+                  <Assign DisplayName="Assign Proposta Minima" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpReference x:TypeArguments="x:Boolean">ServicoPropostaMinima</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpValue x:TypeArguments="x:Boolean">Convert.ToBoolean(item["vlrparametro"])</mca:CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </FlowStep>
+                <FlowStep x:Key="servico04" x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_4">
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpReference x:TypeArguments="x:Boolean">ServicoHistProposta</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpValue x:TypeArguments="x:Boolean">Convert.ToBoolean(item["vlrparametro"])</mca:CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </FlowStep>
+                <FlowStep x:Key="servico05" x:Name="__ReferenceID5" sap2010:WorkflowViewState.IdRef="FlowStep_5">
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_13">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpReference x:TypeArguments="x:Boolean">ServicoPropostaNova</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <mca:CSharpValue x:TypeArguments="x:Boolean">Convert.ToBoolean(item["vlrparametro"])</mca:CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </FlowStep>
+                <FlowStep x:Key="conn1" x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_6">
+                  <Assign DisplayName="Assign Connexao Cockpit" sap2010:WorkflowViewState.IdRef="Assign_14">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <mca:CSharpReference x:TypeArguments="x:String">ConnStringCockipit</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <mca:CSharpValue x:TypeArguments="x:String">SennitCrypt.DeCrypt(item["vlrparametro"].ToString(), "A!09#x*&amp;amp;aTe$")</mca:CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </FlowStep>
+                <FlowStep x:Key="conn3" x:Name="__ReferenceID7" sap2010:WorkflowViewState.IdRef="FlowStep_7">
+                  <Assign DisplayName="Assign Conexao Nova" sap2010:WorkflowViewState.IdRef="Assign_15">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <mca:CSharpReference x:TypeArguments="x:String">ConnStringPR_Nova</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <mca:CSharpValue x:TypeArguments="x:String">SennitCrypt.DeCrypt(item["vlrparametro"].ToString(), "A!09#x*&amp;aTe$")</mca:CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </FlowStep>
+                <FlowStep x:Key="conn2" x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_8">
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_16">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <mca:CSharpReference x:TypeArguments="x:String">ConnStringPR_Atual</mca:CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <mca:CSharpValue x:TypeArguments="x:String">SennitCrypt.DeCrypt(item["vlrparametro"].ToString(), "A!09#x*&amp;amp;aTe$")</mca:CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </FlowStep>
+              </FlowSwitch>
+            </Flowchart.StartNode>
+            <x:Reference>__ReferenceID0</x:Reference>
+            <x:Reference>__ReferenceID1</x:Reference>
+            <x:Reference>__ReferenceID2</x:Reference>
+            <x:Reference>__ReferenceID3</x:Reference>
+            <x:Reference>__ReferenceID4</x:Reference>
+            <x:Reference>__ReferenceID5</x:Reference>
+            <x:Reference>__ReferenceID6</x:Reference>
+            <x:Reference>__ReferenceID7</x:Reference>
+            <x:Reference>__ReferenceID8</x:Reference>
+          </Flowchart>
+        </Sequence>
+      </ActivityAction>
+    </ForEach>
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="Retorno parametros Nimbus" />
+    <Parallel sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <Sequence DisplayName="Carga Proposta PR_ATUAL" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Inicio PR_ATUAL" />
+        <local:SqlServerBulkInsert result="{x:Null}" retorno="{x:Null}" DisplayName="SqlServerBulkInsertTeste" sap2010:WorkflowViewState.IdRef="SqlServerBulkInsert_5" Query="Select * from Proposta" TabelaDestino="dbo.TBIMP_AtualProposta">
+          <local:SqlServerBulkInsert.connectionStringDestino>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">ConnStringCockipit</mca:CSharpValue>
+            </InArgument>
+          </local:SqlServerBulkInsert.connectionStringDestino>
+          <local:SqlServerBulkInsert.connectionStringOrigem>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">ConnStringPR_Atual</mca:CSharpValue>
+            </InArgument>
+          </local:SqlServerBulkInsert.connectionStringOrigem>
+        </local:SqlServerBulkInsert>
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="Fim PR_ATUAL" />
+      </Sequence>
+      <Sequence DisplayName="Carga Proposta Minima PR_ATUAL" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="Inicio PR_ATUAL Minima" />
+        <local:SqlServerBulkInsert result="{x:Null}" retorno="{x:Null}" DisplayName="SqlServerBulkInsertTeste" sap2010:WorkflowViewState.IdRef="SqlServerBulkInsert_6" Query="Select * from PropostaMinima" TabelaDestino="dbo.TbImp_AtualPropostaMinima">
+          <local:SqlServerBulkInsert.connectionStringDestino>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">ConnStringCockipit</mca:CSharpValue>
+            </InArgument>
+          </local:SqlServerBulkInsert.connectionStringDestino>
+          <local:SqlServerBulkInsert.connectionStringOrigem>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String">ConnStringPR_Atual</mca:CSharpValue>
+            </InArgument>
+          </local:SqlServerBulkInsert.connectionStringOrigem>
+        </local:SqlServerBulkInsert>
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="Fim PR_ATUAL Minima" />
+      </Sequence>
+      <Sequence DisplayName="Carga PR_NOVA Hist" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="Inicio PR_Nova HIST" />
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="Fim PR_NOVA Hist" />
+      </Sequence>
+      <Sequence DisplayName="Carga PR_NOVA" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="Inicio PR_NOVA Proposta" />
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="Fim PR_Nova Proposta" />
+      </Sequence>
+      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:Boolean" Default="True" Name="ServicoProposta" />
+          <Variable x:TypeArguments="x:Boolean" Name="ServicoPropostaMinima" />
+          <Variable x:TypeArguments="x:Boolean" Name="ServicoHistProposta" />
+          <Variable x:TypeArguments="x:Boolean" Name="ServicoNovaProposta" />
+          <Variable x:TypeArguments="x:Boolean" Name="ServicoTransacao" />
+          <Variable x:TypeArguments="x:String" Name="ConnStringPR_Atual" />
+          <Variable x:TypeArguments="x:String" Name="ConnStringPR_Nova" />
+          <Variable x:TypeArguments="x:String" Name="ConnStringCockipt" />
+        </Sequence.Variables>
+      </Sequence>
+    </Parallel>
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="Chamando Nimbus para Atualizar Data" />
+    <AddToCollection x:TypeArguments="scg:KeyValuePair(x:String, x:String)" DisplayName="AddToCollection&lt;KeyValuePair&lt;String,String&gt;&gt;" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1">
+      <AddToCollection.Item>
+        <InArgument x:TypeArguments="scg:KeyValuePair(x:String, x:String)">
+          <mca:CSharpValue x:TypeArguments="scg:KeyValuePair(x:String, x:String)">new KeyValuePair&lt;string,string&gt;("@id","1")</mca:CSharpValue>
+        </InArgument>
+      </AddToCollection.Item>
+      <InArgument x:TypeArguments="scg:ICollection(scg:KeyValuePair(x:String, x:String))">
+        <mca:CSharpValue x:TypeArguments="scg:ICollection(scg:KeyValuePair(x:String, x:String))">postValue</mca:CSharpValue>
+      </InArgument>
+    </AddToCollection>
+    <local:SqlServer resultQuery="{x:Null}" sap2010:WorkflowViewState.IdRef="SqlServer_1" persist="True" query="update [Adm_Parametros] set VlrParametro = (Select convert(varchar,getdate(),121)) where [NomeParametro] = 'HoraFim'">
+      <local:SqlServer.connectionString>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">ConnStringCockipit</mca:CSharpValue>
+        </InArgument>
+      </local:SqlServer.connectionString>
+      <local:SqlServer.parameters>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">
+          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:String)">new Dictionary&lt;string, string&gt;();</mca:CSharpValue>
+        </InArgument>
+      </local:SqlServer.parameters>
+    </local:SqlServer>
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="Fim" />
+    <sads:DebugSymbol.Symbol>d0RDOlxTaXN0ZW1hc1xOaW1idXNTZXJ2ZXJcUHJvamVjdHNcQmFja2dyb3VuZFByb2Nlc3NvclxBY3Rpdml0eTEueGFtbFdpA+0CDgIBAXYLdooBAgECegV6TgMBsgN7BYYBIgMBmQOHAQWHAVADAZcDiAEFnAIPAwGVAZ0CBZ0CYQMBkwGeAgXTAhACAUbUAgXUAmsCAUTVAgXeAhcCASvfAgXqAhcCARDrAgXrAkwCAQ56Q3pLAwGzA4MBC4MBpAEDAaYDfgt+agMBmgOHAUSHAU0DAZgDiwELiwGLAQMBiwOSAQmaAhQDAZYBnQJDnQJeAwGUAZ8CB64CEgIBc68CB74CEgIBU78CB8ICEgIBTsMCB8YCEgIBSccCB9ICEgIBR9QCQ9QCaAIBRdwCCdwCfQIBONgCC9gClQECASzfAmPfAmkCASrfAnDfAuYBAgEp4gIL4gJbAgEd5wIL5wKKAQIBEesCROsCSQIBD5MBC5cBFwMB/QKYAQuZAhcDAZcBoAIJoAJbAwGRAaECCawCJQIBdq0CCa0CWAIBdLACCbACYgIBcbECCbwCJQIBVr0CCb0CXwIBVMACCcACXwIBUcECCcECXAIBT8QCCcQCZAIBTMUCCcUCYQIBSskCOckCPwIBSJUBD5UBeAMB/gKcAROcAXEDAfACgQITjAIcAwHVAvMBE/4BHAMBugLlARPwARwDAZ8C1wET4gEcAwGEAskBE9QBHAMB6QG7ARPGARwDAc4BrQETuAEcAwGzAZ8BE6oBHAMBmAGgAkegAlgDAZIBpAIPpAJfAwGFAakCD6kCXwIBeaECrgGhAsYBAgF4oQLVAaEC7gECAXetAketAlUCAXWwAkewAl8CAXK0Ag+0Al8CAWW5Ag+5Al8CAVmxAq4BsQLMAQIBWLEC2wGxAvoBAgFXvQJHvQJcAgFVwAJHwAJcAgFSwQJHwQJZAgFQxAJIxAJhAgFNxQJIxQJeAgFLiQIZiQKjAQMB4wKEAhmEAnEDAdYC+wEZ+wGfAQMByAL2ARn2AXADAbsC7QEZ7QGjAQMBrQLoARnoAXEDAaAC3wEZ3wF/AwGSAtoBGdoBcwMBhQLRARnRAX8DAfcBzAEZzAFzAwHqAcMBGcMBfwMB3AG+ARm+AXUDAc8BtQEZtQF/AwHBAbABGbABbwMBtAGnARmnAX8DAaYBogEZogFwAwGZAQ==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="1537,62" />
+      <sap2010:ViewStateData Id="HttpResponseActivity_1" sap:VirtualizedContainerService.HintSize="1537,22" />
+      <sap2010:ViewStateData Id="WriteLine_13" sap:VirtualizedContainerService.HintSize="1537,62" />
+      <sap2010:ViewStateData Id="WriteLine_14" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="242,62">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">9,259</av:Point>
+            <av:Size x:Key="ShapeSize">242,62</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_10" sap:VirtualizedContainerService.HintSize="242,62">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">9,369</av:Point>
+            <av:Size x:Key="ShapeSize">242,62</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_11" sap:VirtualizedContainerService.HintSize="242,62">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">549,399</av:Point>
+            <av:Size x:Key="ShapeSize">242,62</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_12" sap:VirtualizedContainerService.HintSize="242,62">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">589,249</av:Point>
+            <av:Size x:Key="ShapeSize">242,62</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_13" sap:VirtualizedContainerService.HintSize="242,62">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">609,159</av:Point>
+            <av:Size x:Key="ShapeSize">242,62</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_14" sap:VirtualizedContainerService.HintSize="242,62">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_6">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">609,79</av:Point>
+            <av:Size x:Key="ShapeSize">242,62</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_15" sap:VirtualizedContainerService.HintSize="242,62">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">599,9</av:Point>
+            <av:Size x:Key="ShapeSize">242,62</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_16" sap:VirtualizedContainerService.HintSize="242,62">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">9,119</av:Point>
+            <av:Size x:Key="ShapeSize">242,62</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowSwitch`1_1" sap:VirtualizedContainerService.HintSize="70,87">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <av:Point x:Key="ShapeLocation">395,126.5</av:Point>
+            <av:Size x:Key="ShapeSize">70,87</av:Size>
+            <av:PointCollection x:Key="servico01Connector">412.5,213.5 412.5,243.5 130,243.5 130,259</av:PointCollection>
+            <av:PointCollection x:Key="servico02Connector">430,213.5 430,339 130,339 130,369</av:PointCollection>
+            <av:PointCollection x:Key="servico03Connector">447.5,213.5 447.5,430 549,430</av:PointCollection>
+            <av:PointCollection x:Key="servico04Connector">465,191.75 495,191.75 495,280 589,280</av:PointCollection>
+            <av:PointCollection x:Key="servico05Connector">465,170 495,170 495,190 609,190</av:PointCollection>
+            <av:PointCollection x:Key="conn1Connector">465,148.25 495,148.25 495,110 609,110</av:PointCollection>
+            <av:PointCollection x:Key="conn3Connector">447.5,126.5 447.5,40 599,40</av:PointCollection>
+            <av:PointCollection x:Key="conn2Connector">395,191.75 365,191.75 365,150 251,150</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="875,636">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 430,107.5 430,126.5</av:PointCollection>
+            <x:Double x:Key="Width">861</x:Double>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_11" sap:VirtualizedContainerService.HintSize="233,277">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="287,427" />
+      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="1537,62" />
+      <sap2010:ViewStateData Id="WriteLine_4" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="SqlServerBulkInsert_5" sap:VirtualizedContainerService.HintSize="211,22" />
+      <sap2010:ViewStateData Id="WriteLine_5" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="233,978">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_8" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="SqlServerBulkInsert_6" sap:VirtualizedContainerService.HintSize="211,22" />
+      <sap2010:ViewStateData Id="WriteLine_9" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="Sequence_8" sap:VirtualizedContainerService.HintSize="233,978">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_6" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteLine_7" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="233,978">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_10" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteLine_11" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="233,978">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="331,978">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Parallel_1" sap:VirtualizedContainerService.HintSize="1537,1024" />
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="1406,62" />
+      <sap2010:ViewStateData Id="AddToCollection`1_1" sap:VirtualizedContainerService.HintSize="1406,22" />
+      <sap2010:ViewStateData Id="SqlServer_1" sap:VirtualizedContainerService.HintSize="1406,22" />
+      <sap2010:ViewStateData Id="WriteLine_12" sap:VirtualizedContainerService.HintSize="1406,62" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="1559,2311">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="NimbusServer.Api.Activity3_1" sap:VirtualizedContainerService.HintSize="1599,2391" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

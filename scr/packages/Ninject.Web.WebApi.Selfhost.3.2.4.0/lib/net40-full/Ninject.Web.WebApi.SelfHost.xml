@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ninject.Web.WebApi.SelfHost</name>
+    </assembly>
+    <members>
+        <member name="T:Ninject.Web.WebApi.Selfhost.NinjectSelfHostDependencyResolver">
+            <summary>
+            Ninject dependency resolver for self hosting
+            </summary>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.NinjectSelfHostDependencyResolver.#ctor(Ninject.Syntax.IResolutionRoot)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ninject.Web.WebApi.Selfhost.NinjectSelfHostDependencyResolver"/> class.
+            </summary>
+            <param name="resolutionRoot">The resolution root.</param>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.NinjectSelfHostDependencyResolver.BeginScope">
+            <summary>
+            Begins the scope.
+            </summary>
+            <returns>The new scope</returns>
+        </member>
+        <member name="T:Ninject.Web.WebApi.Selfhost.NinjectWebApiSelfHost">
+            <summary>
+            Web API self host for ninject web common
+            </summary>
+        </member>
+        <member name="F:Ninject.Web.WebApi.Selfhost.NinjectWebApiSelfHost.server">
+            <summary>
+            The self host server.
+            </summary>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.NinjectWebApiSelfHost.#ctor(System.Web.Http.SelfHost.HttpSelfHostConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ninject.Web.WebApi.Selfhost.NinjectWebApiSelfHost"/> class.
+            </summary>
+            <param name="httpSelfHostConfiguration">The HTTP self host configuration.</param>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.NinjectWebApiSelfHost.Start">
+            <summary>
+            Starts this instance.
+            </summary>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.NinjectWebApiSelfHost.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.NinjectWebApiSelfHost.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposable"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:Ninject.Web.WebApi.Selfhost.SelfHostNinjectDependencyScope">
+            <summary>
+            Dependency scope for self hosting.
+            </summary>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.SelfHostNinjectDependencyScope.#ctor(Ninject.Syntax.IResolutionRoot)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ninject.Web.WebApi.Selfhost.SelfHostNinjectDependencyScope"/> class.
+            </summary>
+            <param name="resolutionRoot">The resolution root.</param>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.SelfHostNinjectDependencyScope.Dispose(System.Boolean)">
+            <summary>
+            Releases resources held by the object.
+            </summary>
+            <param name="disposing">true if the object is beeing disposed, false if it it finalized.</param>
+        </member>
+        <member name="T:Ninject.Web.WebApi.Selfhost.SelfHostWebApiRequestScopeProvider">
+            <summary>
+            Provides the request scope.
+            </summary>
+        </member>
+        <member name="F:Ninject.Web.WebApi.Selfhost.SelfHostWebApiRequestScopeProvider.WebAPIScopeName">
+            <summary>
+            The web api scope name for named scope.
+            </summary>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.SelfHostWebApiRequestScopeProvider.GetRequestScope(Ninject.Activation.IContext)">
+            <summary>
+            Gets the request scope.
+            </summary>
+            <param name="context">The activation context.</param>
+            <returns>The request scope</returns>
+        </member>
+        <member name="T:Ninject.Web.WebApi.Selfhost.WebApiSelfHostModule">
+            <summary>
+            Web API Selfhosting ninject module.
+            </summary>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.WebApiSelfHostModule.Load">
+            <summary>
+            Loads the module into the kernel.
+            </summary>
+        </member>
+        <member name="M:Ninject.Web.WebApi.Selfhost.WebApiSelfHostModule.VerifyRequiredModulesAreLoaded">
+            <summary>
+            Called after loading the modules. A module can verify here if all other required modules are loaded.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html data-ng-app="AngularAuthApp">
+<head>
+    <meta charset="utf-8" />
+    
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <title>Sennit Api Builder</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link href="content/bootstrap.css" rel="stylesheet" />
+    <link href="content/sennit.css" rel="stylesheet" />
+    <script src="/Scripts/Js/jquery.1.7.min.js"></script>
+    <script src="/Scripts/Js/moment-with-langs.min.js"></script>
+    <script src="/Scripts/Js/bootstrap.min.js"></script>
+</head>
+
+        
+        
+        
+
+<body>
+    <div class="navbar navbar-default" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <a><img src="content/Images/Logo.png" style="max-height:50px" /></a>
+            </div>
+            <ul class="nav navbar-nav" data-ng-hide="!authentication.isAuth">
+
+                <li class="menu-item dropdown">
+                    <a class="dropdown-toggle" style="cursor:pointer" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span></a>
+                    <ul class="dropdown-menu">
+                  
+
+                        <li class="menu-item dropdown dropdown-submenu">
+                            <a href="#" title="" class="dropdown-toggle" data-toggle="dropdown">Matrix</a>
+                            <ul class="dropdown-menu">
+                                <li class="menu-item"><a href="#/sistemas">Sistema</a></li>
+                                <li class="menu-item"><a href="#/assuntos">Api</a></li>
+                                <li class="menu-item"><a href="#/conexoes">Conexões</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li data-ng-hide="!authentication.isAuth"><a href="#">Olá {{authentication.userName}}</a></li>
+                <li data-ng-hide="!authentication.isAuth"><a href="#">Minha Conta</a></li>
+                <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Registrar-se</a></li>
+                <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Sair</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <div data-ng-view="">
+        </div>
+    </div>
+
+
+    <div data-backdrop="static" class="modal fade" id="ErroInitModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>Erro de conexão.</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.reload();">Recarregar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- 3rd party libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-route.min.js"></script>
+    <script src="scripts/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>
+    <!-- Load app main script -->
+    <script src="app/app.js?v=2"></script>
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=2"></script>
+
+
+    <script src="app/services/sistemasService.js?v=2"></script>
+    <script src="app/services/assuntoService.js?v=2"></script>
+    <script src="app/services/queriesService.js?v=2"></script>
+    <script src="app/services/tokensManagerService.js?v=2"></script>
+    <!-- Load controllers -->
+
+    <script src="app/controllers/indexController.js?v=2"></script>
+    <script src="app/controllers/assuntoController.js"></script>
+    <script src="app/controllers/queriesController.js?v=2"></script>
+    <script src="app/controllers/conexoesController.js"></script>
+    <script src="app/controllers/homeController.js?v=2"></script>
+    <script src="app/controllers/loginController.js?v=2"></script>
+    <script src="app/controllers/signupController.js?v=2"></script>
+
+    <script src="app/controllers/sistemasController.js?v=2"></script>
+    <script src="app/controllers/refreshController.js?v=2"></script>
+    <script src="app/controllers/tokensManagerController.js?v=2"></script>
+    <script src="app/controllers/associateController.js?v=2"></script>
+    <!-- Load custom filters -->
+    <!-- Load custom directives -->
+</body>
+
+</html>
+
+

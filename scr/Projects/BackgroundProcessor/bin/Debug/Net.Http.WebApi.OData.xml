@@ -1,0 +1,1423 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Net.Http.WebApi.OData</name>
+    </assembly>
+    <members>
+        <member name="T:Net.Http.WebApi.OData.AbstractFilterBinder">
+            <summary>
+            A base class for binding a filter expression tree.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.AbstractFilterBinder.Bind(Net.Http.WebApi.OData.Query.Expressions.QueryNode)">
+            <summary>
+            Binds the specified <see cref="T:Net.Http.WebApi.OData.Query.Expressions.QueryNode"/>.
+            </summary>
+            <param name="node">The <see cref="T:Net.Http.WebApi.OData.Query.Expressions.QueryNode"/> to bind.</param>
+            <exception cref="T:System.NotSupportedException">Thrown if the node is not supported.</exception>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.AbstractFilterBinder.BindBinaryOperatorNode(Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode)">
+            <summary>
+            Binds the specified <see cref="T:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode"/>.
+            </summary>
+            <param name="binaryOperatorNode">The <see cref="T:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode"/> to bind.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.AbstractFilterBinder.BindConstantNode(Net.Http.WebApi.OData.Query.Expressions.ConstantNode)">
+            <summary>
+            Binds the specified <see cref="T:Net.Http.WebApi.OData.Query.Expressions.ConstantNode"/>.
+            </summary>
+            <param name="constantNode">The <see cref="T:Net.Http.WebApi.OData.Query.Expressions.ConstantNode"/> to bind.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.AbstractFilterBinder.BindSingleValueFunctionCallNode(Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode)">
+            <summary>
+            Binds the specified <see cref="T:Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode"/>.
+            </summary>
+            <param name="singleValueFunctionCallNode">The <see cref="T:Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode"/> to bind.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.AbstractFilterBinder.BindSingleValuePropertyAccessNode(Net.Http.WebApi.OData.Query.Expressions.SingleValuePropertyAccessNode)">
+            <summary>
+            Binds the specified <see cref="T:Net.Http.WebApi.OData.Query.Expressions.SingleValuePropertyAccessNode"/>.
+            </summary>
+            <param name="singleValuePropertyAccessNode">The <see cref="T:Net.Http.WebApi.OData.Query.Expressions.SingleValuePropertyAccessNode"/> to bind.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.AbstractFilterBinder.BindUnaryOperatorNode(Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode)">
+            <summary>
+            Binds the specified <see cref="T:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode"/>.
+            </summary>
+            <param name="unaryOperatorNode">The <see cref="T:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode"/> to bind.</param>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.InlineCountCollection`1">
+            <summary>
+            A class which is used to return results with an inline count.
+            </summary>
+            <typeparam name="T">The type of item contained in the collection.</typeparam>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.InlineCountCollection`1.#ctor(System.Collections.Generic.IList{`0},System.Int32)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.InlineCountCollection`1"/> class.
+            </summary>
+            <param name="items">The items to be returned.</param>
+            <param name="count">The total result count.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.InlineCountCollection`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.InlineCountCollection`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.InlineCountCollection`1.Count">
+            <summary>
+            Gets or sets the total result count.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.AddOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;add&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.AndOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;and&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.CeilingFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;ceiling&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.ConcatFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;concat&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.DayFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;day&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.DivideOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;div&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.EndsWithFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;endswith&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.EqualsOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;eq&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.FilterQueryOptionNotSupported">
+            <summary>
+              Looks up a localized string similar to The $filter query option is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.FloorFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;floor&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.FormatQueryOptionNotSupported">
+            <summary>
+              Looks up a localized string similar to The $format query option is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.GreaterThanOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;gt&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.GreaterThanOrEqualsOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;ge&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.HourFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;hour&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.IndexOfFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;indexof&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.InlineCountQueryOptionNotSupported">
+            <summary>
+              Looks up a localized string similar to The $inlinecount query option is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.InlineCountRawValueInvalid">
+            <summary>
+              Looks up a localized string similar to If specified, the $inlinecount value must be either &apos;allpages&apos; or &apos;none&apos;..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.LengthFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;length&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.LessThanOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;lt&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.LessThanOrEqualsOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;le&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.MinuteFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;minute&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.ModuloOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;mod&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.MonthFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;month&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.MultiplyOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;mul&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.NotEqualsOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;ne&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.OrderByPropertyRawValueInvalid">
+            <summary>
+              Looks up a localized string similar to If specified, the $orderby direction must be either &apos;asc&apos; or &apos;desc&apos;..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.OrderByQueryOptionNotSupported">
+            <summary>
+              Looks up a localized string similar to The $orderby query option is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.OrOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;or&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.ReplaceFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;replace&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.RoundFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;round&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.SecondFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;second&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.SelectQueryOptionNotSupported">
+            <summary>
+              Looks up a localized string similar to The $select query option is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.SkipQueryOptionNotSupported">
+            <summary>
+              Looks up a localized string similar to The $skip query option is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.SkipRawValueInvalid">
+            <summary>
+              Looks up a localized string similar to If specified, the $skip value must be a positive integer..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.StartsWithFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;startswith&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.SubstringFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;substring&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.SubstringOfFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;substringof&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.SubtractOperatorNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;sub&apos; operator is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.ToLowerFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;tolower&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.TopQueryOptionNotSupported">
+            <summary>
+              Looks up a localized string similar to The $top query option is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.TopRawValueInvalid">
+            <summary>
+              Looks up a localized string similar to If specified, the $top value must be a positive integer..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.TopValueExceedsMaxAllowed">
+            <summary>
+              Looks up a localized string similar to The specified $top value exceeds the maximum allowed value of &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.ToUpperFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;toupper&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.TrimFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;trim&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.UnknownQueryOption">
+            <summary>
+              Looks up a localized string similar to The query option &apos;{0}&apos; is not a valid query option. Valid query options are $expand, $filter, $format, $inlinecount, $orderby, $select, $skip, $skiptoken and $top.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Messages.YearFunctionNotSupported">
+            <summary>
+              Looks up a localized string similar to The &apos;year&apos; function is not supported by this service..
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.ODataException">
+            <summary>
+            An exception which is thrown if there is an error processing an OData query.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.ODataException.#ctor">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.ODataException"/> class.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.ODataException.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.ODataException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.ODataException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.ODataException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception. If the <paramref name="innerException"/> parameter is not a null reference (Nothing in Visual Basic), the current exception is raised in a catch block that handles the inner exception.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.ODataException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.ODataException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="info"/> parameter is null. </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). </exception>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.AllowedArithmeticOperators">
+            <summary>
+            An enumeration which represents the arithmetic operators allowed in the $filter query option of an OData query.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedArithmeticOperators.None">
+            <summary>
+            Specifies that no arithmetic operators are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedArithmeticOperators.Add">
+            <summary>
+            Specifies that the 'add' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedArithmeticOperators.Subtract">
+            <summary>
+            Specifies that the 'sub' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedArithmeticOperators.Multiply">
+            <summary>
+            Specifies that the 'mul' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedArithmeticOperators.Divide">
+            <summary>
+            Specifies that the 'div' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedArithmeticOperators.Modulo">
+            <summary>
+            Specifies that the 'mod' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedArithmeticOperators.All">
+            <summary>
+            Specifies that all logical arithmetic are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.AllowedFunctions">
+            <summary>
+            An enumeration which represents the functions allowed in the $filter query option of an OData query.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.None">
+            <summary>
+            Specifies that no functions are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.StartsWith">
+            <summary>
+            Specifies that the 'StartsWith' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.EndsWith">
+            <summary>
+            Specifies that the 'EndsWith' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.SubstringOf">
+            <summary>
+            Specifies that the 'SubstringOf' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.ToLower">
+            <summary>
+            Specifies that the 'ToLower' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.ToUpper">
+            <summary>
+            Specifies that the 'ToUpper' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Year">
+            <summary>
+            Specifies that the 'Year' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Month">
+            <summary>
+            Specifies that the 'Month' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Day">
+            <summary>
+            Specifies that the 'Day' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Trim">
+            <summary>
+            Specifies that the 'Trim' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Length">
+            <summary>
+            Specifies that the 'Length' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Round">
+            <summary>
+            Specifies that the 'Round' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Ceiling">
+            <summary>
+            Specifies that the 'Ceiling' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Floor">
+            <summary>
+            Specifies that the 'Floor' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Hour">
+            <summary>
+            Specifies that the 'Hour' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Minute">
+            <summary>
+            Specifies that the 'Minute' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Second">
+            <summary>
+            Specifies that the 'Second' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.IndexOf">
+            <summary>
+            Specifies that the 'IndexOf' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Replace">
+            <summary>
+            Specifies that the 'Replace' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Substring">
+            <summary>
+            Specifies that the 'Substring' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.Concat">
+            <summary>
+            Specifies that the 'Concat' function is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.AllStringFunctions">
+            <summary>
+            Specifies that all string functions are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.AllDateTimeFunctions">
+            <summary>
+            Specifies that all date/time functions are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.AllMathFunctions">
+            <summary>
+            Specifies that all math functions are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedFunctions.AllFunctions">
+            <summary>
+            Specifies that all functions are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.AllowedLogicalOperators">
+            <summary>
+            An enumeration which represents the logical operators allowed in the $filter query option of an OData query.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.None">
+            <summary>
+            Specifies that no logical operators are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.Equal">
+            <summary>
+            Specifies that the 'eq' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.NotEqual">
+            <summary>
+            Specifies that the 'ne' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.GreaterThan">
+            <summary>
+            Specifies that the 'gt' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.GreaterThanOrEqual">
+            <summary>
+            Specifies that the 'ge' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.LessThan">
+            <summary>
+            Specifies that the 'lt' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.LessThanOrEqual">
+            <summary>
+            Specifies that the 'le' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.And">
+            <summary>
+            Specifies that the 'and' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.Or">
+            <summary>
+            Specifies that the 'or' logical operator is allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedLogicalOperators.All">
+            <summary>
+            Specifies that all logical operators are allowed in the $filter query option.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.AllowedQueryOptions">
+            <summary>
+            An enumeration which represents the query options allowed by an OData query.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.None">
+            <summary>
+            Specifies that no query options are supported.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.Select">
+            <summary>
+            Specifies that the $select query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.Filter">
+            <summary>
+            Specifies that the $filter query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.Expand">
+            <summary>
+            Specifies that the $expand query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.Skip">
+            <summary>
+            Specifies that the $skip query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.Top">
+            <summary>
+            Specifies that the $top query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.SkipToken">
+            <summary>
+            Specifies that the $skip token query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.OrderBy">
+            <summary>
+            Specifies that the $order by query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.InlineCount">
+            <summary>
+            Specifies that the $inline count query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.Format">
+            <summary>
+            Specifies that the $format query option may be used.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.AllowedQueryOptions.All">
+            <summary>
+            Specifies that all query options may be used.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind">
+            <summary>
+            The kinds of binary operator.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.None">
+            <summary>
+            The binary kind is none.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.Or">
+            <summary>
+            The binary operator is or.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.And">
+            <summary>
+            The binary operator is and.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.Equal">
+            <summary>
+            The binary operator is equal.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.NotEqual">
+            <summary>
+            The binary operator is not equal.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.GreaterThan">
+            <summary>
+            The binary operator is greater than.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.GreaterThanOrEqual">
+            <summary>
+            The binary operator is greater than or equal.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.LessThan">
+            <summary>
+            The binary operator is less than.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.LessThanOrEqual">
+            <summary>
+            The binary operator is less than or equal.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.Add">
+            <summary>
+            The binary operator is add.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.Subtract">
+            <summary>
+            The binary operator is subtract.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.Multiply">
+            <summary>
+            The binary operator is multiply.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.Divide">
+            <summary>
+            The binary operator is divide.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind.Modulo">
+            <summary>
+            The binary operator is modulo.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode">
+            <summary>
+            A QueryNode which represents a binary operator with a left and right branch.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.SingleValueNode">
+            <summary>
+            A query node which encapsulates a single value.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.QueryNode">
+            <summary>
+            The base class for a query node.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.QueryNode.Kind">
+            <summary>
+            Gets the kind of query node.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode.#ctor">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode"/> class.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode.#ctor(Net.Http.WebApi.OData.Query.Expressions.SingleValueNode,Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorKind,Net.Http.WebApi.OData.Query.Expressions.SingleValueNode)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode"/> class.
+            </summary>
+            <param name="left">The left query node.</param>
+            <param name="operatorKind">Kind of the operator.</param>
+            <param name="right">The right query node.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode.Kind">
+            <summary>
+            Gets the kind of query node.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode.Left">
+            <summary>
+            Gets or sets the left query node.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode.OperatorKind">
+            <summary>
+            Gets or sets the kind of the operator.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.BinaryOperatorNode.Right">
+            <summary>
+            Gets or sets the right query node.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.ConstantNode">
+            <summary>
+            A QueryNode which represents a constant value.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Expressions.ConstantNode.#ctor(System.String,System.Object)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.Expressions.ConstantNode"/> class.
+            </summary>
+            <param name="literalText">The literal text.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.ConstantNode.Kind">
+            <summary>
+            Gets the kind of query node.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.ConstantNode.LiteralText">
+            <summary>
+            Gets the literal text if the constant value.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.ConstantNode.Value">
+            <summary>
+            Gets the constant value as an object.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.QueryNodeKind">
+            <summary>
+            Gets the kinds of query node
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.QueryNodeKind.None">
+            <summary>
+            The query node is not specified.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.QueryNodeKind.BinaryOperator">
+            <summary>
+            The query node is a binary operator query node.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.QueryNodeKind.SingleValuePropertyAccess">
+            <summary>
+            The single value property access query node.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.QueryNodeKind.Constant">
+            <summary>
+            The constant value query node.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.QueryNodeKind.SingleValueFunctionCall">
+            <summary>
+            The single value function call query node.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.QueryNodeKind.UnaryOperator">
+            <summary>
+            The query node is a unary operator query node.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode">
+            <summary>
+            A QueryNode which represents a function call.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode.#ctor(System.String,System.Collections.Generic.IList{Net.Http.WebApi.OData.Query.Expressions.QueryNode})">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="arguments">The arguments.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode.Arguments">
+            <summary>
+            Gets the arguments for the function call.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode.Kind">
+            <summary>
+            Gets the kind of query node.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.SingleValueFunctionCallNode.Name">
+            <summary>
+            Gets the name of the function.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.SingleValuePropertyAccessNode">
+            <summary>
+            A QueryNode which represents a property.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Expressions.SingleValuePropertyAccessNode.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.Expressions.SingleValuePropertyAccessNode"/> class.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.SingleValuePropertyAccessNode.Kind">
+            <summary>
+            Gets the kind of query node.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.SingleValuePropertyAccessNode.PropertyName">
+            <summary>
+            Gets the name of the property.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorKind">
+            <summary>
+            The kinds of unary operator.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorKind.Not">
+            <summary>
+            The unary kind is not.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode">
+            <summary>
+            A QueryNode which represents a unary operator.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode.#ctor(Net.Http.WebApi.OData.Query.Expressions.SingleValueNode,Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorKind)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode"/> class.
+            </summary>
+            <param name="operand">The operand of the unary operator.</param>
+            <param name="operatorKind">Kind of the operator.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode.Kind">
+            <summary>
+            Gets the kind of query node.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode.Operand">
+            <summary>
+            Gets the operand of the unary operator.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.Expressions.UnaryOperatorNode.OperatorKind">
+            <summary>
+            Gets or sets the kind of the operator.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.FilterQueryOption">
+            <summary>
+            A class containing deserialised values from the $filter query option.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.FilterQueryOption.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.FilterQueryOption"/> class.
+            </summary>
+            <param name="rawValue">The raw request value.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.FilterQueryOption.Expression">
+            <summary>
+            Gets the expression.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.FilterQueryOption.RawValue">
+            <summary>
+            Gets the raw request value.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.FormatQueryOption">
+            <summary>
+            A class containing deserialised values from the $format query option.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.FormatQueryOption.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.FormatQueryOption"/> class.
+            </summary>
+            <param name="rawValue">The raw request value.</param>
+            <exception cref="T:Net.Http.WebApi.OData.ODataException">Thrown if the raw value is invalid.</exception>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.FormatQueryOption.MediaTypeHeaderValue">
+            <summary>
+            Gets the media type header value.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.FormatQueryOption.RawValue">
+            <summary>
+            Gets the raw request value.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.InlineCount">
+            <summary>
+            The valid inline count options.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.InlineCount.None">
+            <summary>
+            The OData service MUST NOT include a count in the response.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.InlineCount.AllPages">
+            <summary>
+            The OData MUST include a count of the number of entities in the collection identified by the URI
+            (after applying any $filter System Query Options present on the URI)
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.InlineCountQueryOption">
+            <summary>
+            A class containing deserialised values from the $inline count query option.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.InlineCountQueryOption.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.InlineCountQueryOption"/> class.
+            </summary>
+            <param name="rawValue">The raw request value.</param>
+            <exception cref="T:Net.Http.WebApi.OData.ODataException">Thrown if the raw value is invalid.</exception>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.InlineCountQueryOption.InlineCount">
+            <summary>
+            Gets the inline count.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.InlineCountQueryOption.RawValue">
+            <summary>
+            Gets the raw request value.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.ODataQueryOptions">
+            <summary>
+            An object which contains the query options in an OData query.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataQueryOptions.#ctor(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.ODataQueryOptions"/> class.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.Filter">
+            <summary>
+            Gets the filter query option.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.Format">
+            <summary>
+            Gets the format query option.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.InlineCount">
+            <summary>
+            Gets the inline count query option.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.OrderBy">
+            <summary>
+            Gets the order by query option.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.RawValues">
+            <summary>
+            Gets the raw values of the OData query request.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.Request">
+            <summary>
+            Gets the request message associated with this OData query.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.Select">
+            <summary>
+            Gets the select query option.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.Skip">
+            <summary>
+            Gets the skip query option.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataQueryOptions.Top">
+            <summary>
+            Gets the top query option.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.ODataQueryOptionsHttpParameterBinding">
+            <summary>
+            The <see cref="T:System.Web.Http.Controllers.HttpParameterBinding"/> which can create an <see cref="T:Net.Http.WebApi.OData.Query.ODataQueryOptions"/> from the request parameters.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataQueryOptionsHttpParameterBinding.#ctor(System.Web.Http.Controllers.HttpParameterDescriptor)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.ODataQueryOptionsHttpParameterBinding"/> class.
+            </summary>
+            <param name="parameterDescriptor">The parameter descriptor.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataQueryOptionsHttpParameterBinding.ExecuteBindingAsync(System.Web.Http.Metadata.ModelMetadataProvider,System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously executes the binding for the given request.
+            </summary>
+            <param name="metadataProvider">Metadata provider to use for validation.</param>
+            <param name="actionContext">The action context for the binding. The action context contains the parameter dictionary that will get populated with the parameter.</param>
+            <param name="cancellationToken">Cancellation token for cancelling the binding operation.</param>
+            <returns>
+            A task object representing the asynchronous operation.
+            </returns>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.ODataQueryOptionsParameterBindingAttribute">
+            <summary>
+            A <see cref="T:System.Web.Http.ParameterBindingAttribute"/> which returns the <see cref="T:System.Web.Http.Controllers.HttpParameterBinding"/> which can
+            create an <see cref="T:Net.Http.WebApi.OData.Query.ODataQueryOptions"/> from the request parameters.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataQueryOptionsParameterBindingAttribute.GetBinding(System.Web.Http.Controllers.HttpParameterDescriptor)">
+            <summary>
+            Gets the parameter binding.
+            </summary>
+            <param name="parameter">The parameter description.</param>
+            <returns>
+            The parameter binding.
+            </returns>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.ODataRawQueryOptions">
+            <summary>
+            A class which contains the raw request values.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.ODataRawQueryOptions"/> class.
+            </summary>
+            <param name="rawQuery">The raw query.</param>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.Expand">
+            <summary>
+            Gets the raw $expand query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.Filter">
+            <summary>
+            Gets the raw $filter query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.Format">
+            <summary>
+            Gets the raw $format query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.InlineCount">
+            <summary>
+            Gets the raw $inline count query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.OrderBy">
+            <summary>
+            Gets the raw $order by query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.Select">
+            <summary>
+            Gets the raw $select query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.Skip">
+            <summary>
+            Gets the raw $skip query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.SkipToken">
+            <summary>
+            Gets the raw $skip token query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataRawQueryOptions.Top">
+            <summary>
+            Gets the raw $top query value from the incoming request Uri if specified.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.ODataValidationSettings">
+            <summary>
+            A class which defines the validation settings to use when validating values in <see cref="T:Net.Http.WebApi.OData.Query.ODataQueryOptions"/>.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataValidationSettings.op_Inequality(Net.Http.WebApi.OData.Query.ODataValidationSettings,Net.Http.WebApi.OData.Query.ODataValidationSettings)">
+            <summary>
+            Checks whether two separate ODataValidationSettings instances are not equal.
+            </summary>
+            <param name="settings1">The validation settings to check.</param>
+            <param name="settings2">The validation settings to check against.</param>
+            <returns><c>true</c> if the instances are not considered equal; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataValidationSettings.op_Equality(Net.Http.WebApi.OData.Query.ODataValidationSettings,Net.Http.WebApi.OData.Query.ODataValidationSettings)">
+            <summary>
+            Checks whether two separate ODataValidationSettings instances are equal.
+            </summary>
+            <param name="settings1">The validation settings to check.</param>
+            <param name="settings2">The validation settings to check against.</param>
+            <returns><c>true</c> if the instances are considered equal; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataValidationSettings.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataValidationSettings.Equals(Net.Http.WebApi.OData.Query.ODataValidationSettings)">
+            <summary>
+            Determines whether the specified <see cref="T:Net.Http.WebApi.OData.Query.ODataValidationSettings"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Net.Http.WebApi.OData.Query.ODataValidationSettings"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:Net.Http.WebApi.OData.Query.ODataValidationSettings"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.ODataValidationSettings.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+            </returns>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataValidationSettings.All">
+            <summary>
+            Gets the validation settings for when all OData queries are allowed.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataValidationSettings.None">
+            <summary>
+            Gets the validation settings for when no OData queries are allowed.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataValidationSettings.AllowedArithmeticOperators">
+            <summary>
+            Gets or sets the allowed arithmetic operators.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataValidationSettings.AllowedFunctions">
+            <summary>
+            Gets or sets the allowed functions.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataValidationSettings.AllowedLogicalOperators">
+            <summary>
+            Gets or sets the allowed logical operators.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataValidationSettings.AllowedQueryOptions">
+            <summary>
+            Gets or sets the allowed query options.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.ODataValidationSettings.MaxTop">
+            <summary>
+            Gets or sets the max value allowed in the $top query option.
+            </summary>
+            <remarks>
+            This is used to ensure that 'paged' queries do not return excessive results on each call.
+            </remarks>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.OrderByDirection">
+            <summary>
+            The valid order by directions.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.OrderByDirection.Ascending">
+            <summary>
+            The results are to be filtered by the named property in ascending order.
+            </summary>
+        </member>
+        <member name="F:Net.Http.WebApi.OData.Query.OrderByDirection.Descending">
+            <summary>
+            The results are to be filtered by the named property in descending order.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.OrderByProperty">
+            <summary>
+            A class containing deserialised values from the $order by query option.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.OrderByProperty.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.OrderByProperty"/> class.
+            </summary>
+            <param name="rawValue">The raw value.</param>
+            <exception cref="T:Net.Http.WebApi.OData.ODataException">If supplied, the direction should be either 'asc' or 'desc'.</exception>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.OrderByProperty.Direction">
+            <summary>
+            Gets the direction the property should be ordered by.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.OrderByProperty.Name">
+            <summary>
+            Gets the name of the property to order by.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.OrderByProperty.RawValue">
+            <summary>
+            Gets the raw request value.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.OrderByQueryOption">
+            <summary>
+            A class containing deserialised values from the $order by query option.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.OrderByQueryOption.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.OrderByQueryOption"/> class.
+            </summary>
+            <param name="rawValue">The raw request value.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.OrderByQueryOption.Properties">
+            <summary>
+            Gets the properties the query should be ordered by.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.OrderByQueryOption.RawValue">
+            <summary>
+            Gets the raw request value.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.SelectQueryOption">
+            <summary>
+            A class containing deserialised values from the $select query option.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.SelectQueryOption.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.SelectQueryOption"/> class.
+            </summary>
+            <param name="rawValue">The raw request value.</param>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.SelectQueryOption.Properties">
+            <summary>
+            Gets the properties to be included in the query.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.SelectQueryOption.RawValue">
+            <summary>
+            Gets the raw request value.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.SkipQueryOption">
+            <summary>
+            A class containing deserialised values from the $skip query option.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.SkipQueryOption.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.SkipQueryOption"/> class.
+            </summary>
+            <param name="rawValue">The raw request value.</param>
+            <exception cref="T:Net.Http.WebApi.OData.ODataException">If supplied, the $skip value should be an integer.</exception>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.SkipQueryOption.RawValue">
+            <summary>
+            Gets the raw request value.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.SkipQueryOption.Value">
+            <summary>
+            Gets the integer value of the $skip query option.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.TopQueryOption">
+            <summary>
+            A class containing deserialised values from the $top query option.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.TopQueryOption.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:Net.Http.WebApi.OData.Query.TopQueryOption"/> class.
+            </summary>
+            <param name="rawValue">The raw request value.</param>
+            <exception cref="T:Net.Http.WebApi.OData.ODataException">If supplied, the $top value should be an integer.</exception>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.TopQueryOption.RawValue">
+            <summary>
+            Gets the raw request value.
+            </summary>
+        </member>
+        <member name="P:Net.Http.WebApi.OData.Query.TopQueryOption.Value">
+            <summary>
+            Gets the integer value of the $top query option.
+            </summary>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Validators.ODataQueryOptionsExtensions">
+            <summary>
+            Extension methods for validating the <see cref="T:Net.Http.WebApi.OData.Query.ODataQueryOptions"/>
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Validators.ODataQueryOptionsExtensions.Validate(Net.Http.WebApi.OData.Query.ODataQueryOptions,Net.Http.WebApi.OData.Query.ODataValidationSettings)">
+            <summary>
+            Validates the specified query options.
+            </summary>
+            <param name="queryOptions">The query options.</param>
+            <param name="validationSettings">The validation settings.</param>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Validators.ODataQueryOptionsValidator">
+            <summary>
+            A class which validates ODataQueryOptions based upon the ODataValidationSettings.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Validators.ODataQueryOptionsValidator.Validate(Net.Http.WebApi.OData.Query.ODataQueryOptions,Net.Http.WebApi.OData.Query.ODataValidationSettings)">
+            <summary>
+            Validates the specified query options.
+            </summary>
+            <param name="queryOptions">The query options.</param>
+            <param name="validationSettings">The validation settings.</param>
+            <exception cref="T:Net.Http.WebApi.OData.ODataException">Thrown if the validation fails.</exception>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Validators.SkipQueryOptionValidator">
+            <summary>
+            A class which validates the $skip query option based upon the ODataValidationSettings.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Validators.SkipQueryOptionValidator.Validate(Net.Http.WebApi.OData.Query.ODataQueryOptions)">
+            <summary>
+            Validates the specified query options.
+            </summary>
+            <param name="queryOptions">The query options.</param>
+            <exception cref="T:Net.Http.WebApi.OData.ODataException">Thrown if the validation fails.</exception>
+        </member>
+        <member name="T:Net.Http.WebApi.OData.Query.Validators.TopQueryOptionValidator">
+            <summary>
+            A class which validates the $top query option based upon the ODataValidationSettings.
+            </summary>
+        </member>
+        <member name="M:Net.Http.WebApi.OData.Query.Validators.TopQueryOptionValidator.Validate(Net.Http.WebApi.OData.Query.ODataQueryOptions,Net.Http.WebApi.OData.Query.ODataValidationSettings)">
+            <summary>
+            Validates the specified query options.
+            </summary>
+            <param name="queryOptions">The query options.</param>
+            <param name="validationSettings">The validation settings.</param>
+            <exception cref="T:Net.Http.WebApi.OData.ODataException">Thrown if the validation fails.</exception>
+        </member>
+    </members>
+</doc>

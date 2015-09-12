@@ -1,0 +1,22 @@
+ClassySocial is a jQuery plugin that lets your site visitors easily see what
+networks you belong to and visit them in a click of a button.
+
+Currently supports Facebook, Twitter, Dribbble, Socl, Youtube, Vimeo, Google
+Plus, Pinterest, LinkedIn, Instagram, Flickr, Blogger, GitHub, DeviantArt,
+Skype, Steam, Wordpress, Yahoo and e-mail.
+
+Allow your users to see your presence on 18 of the most popular networks
+instantly with no need for a knowledge of coding! Have links to your Facebook,
+Twitter, Vimeo, Dribbble, Instagram, YouTube (and more!) profiles shown in a
+slick way, sure to impress your users.
+
+Includes functionality to use your current Facebook image as the button that
+users press to draw out the network buttons, with automatic updating, pulled
+straight from Facebook!
+
+@name ClassySocial
+@package jQuery plugin
+@author Marius Stanciu - Sergiu <marius@class.pm>
+@website http://www.class.pm/
+@version 2.2.0
+@license MIT www.class.pm/LICENSE-MIT

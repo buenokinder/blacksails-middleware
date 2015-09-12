@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html style="height:100%">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>JS Graph - Formatting</title>
+		<link href="prettify/prettify.css" type="text/css" rel="stylesheet" />
+		<link href="css/jsgfirststeps.css" rel="stylesheet">
+		<script type="application/javascript" src="loader.js"></script>
+		<script type="application/javascript" src="prettify/prettify.js"></script>	</head>
+	<body onload="loadDemo()" style="overflow:hidden; height:100%; margin: 0px">
+		<div style="width:100%; height:100%">
+			<div id="graph" style="position: absolute; right:0px; width:50%; height:100%">
+				<canvas id="canvas1" tabindex="0" style="cursor:auto;">
+				</canvas>
+			</div>
+
+			<div id="guide" style="width:50%; height:100%; overflow:scroll">
+				<div id="content" style="width:95%; height:100%; margin: 8px">
+					<h1>Formatting graphical Objects in JS Graph</h1>
+					<h2>Overview</h2>
+					<p>
+						This chapter explains in more detail, how formats can be applied to nodes and egdes. The different fill, line and text styles will be introduced. 
+						Furthermore the different styles will be applied and explained in detail. Naturally fill formats can only be applied to closed objects like
+						rectangles, circles or closed polygons. Text formats can be applied to labels being part of a node or being a label attached to a line.
+					</p>
+					<h2>Line Formatting</h2>
+					<p>
+						As a first step, line formatting will be applied. A line or the border of any other item can be formatted using different line colors, a certain line style and the
+						line width. The color is changed using a hexidecimal color definition. This definition is preceeded by a hash (#) and the Red, Green and Blue color components
+						in hexadecimal notation ranging from 00 to FF. The line width is defined using 1/100 mm and the different line styles and given by line style constants listed in
+						<code>JSG.graph.model.attributes.LineStyle</code>. In addition you can define an edge or corner rounding for polylines. This rounding is also given in 1/100 th mm.
+						See at the following example to find out how the parameters are applied and their effect on GraphItems.
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="formatLine"></pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.formatLine()">
+						Format Line
+					</button>
+					<p>
+						In the next sample arrow heads are applied to a polyline. The is a set of over 20 different arrow styles defined in <code>JSG.graph.model.attributes.ArrowStyle</code>,
+						that can be applied to a line or poly line. Obviously they only show an effect if, an item is not a closed area. There the fill color is used in this case for filling
+						the arrow head as can be seen in the sample. Here we are applying two different arrow heads and define a red fill color for the arrow heads.
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="formatLineArrow"></pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.formatLineArrow()">
+						Format Polyline with Arrow
+					</button>
+					<h2>Fill Formats</h2>
+					<p>
+						There are 3 different fill format appearances available for nodes. A solid fill, a gradient fill and a pattern fill. The type of fill to be used is defined by 
+						the fill style. In the following samples you will see how the different fill styles are used. The first shows how to apply a simple fill color. In addition
+						a transparency factor is set. The transparency allows, depending on the factor, to see items below the formatted item. The fill color is defined using
+						the hexadecimal string as explained above. The transparency uses a percent value ranging from 0 to 100.
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="formatFillSolid"></pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.formatFillSolid()">
+						Fill Node
+					</button>
+					<p>
+						In the following sample a gradient fill is defined. There are two different gradient types : the linear and the radial gradient. For the linear gradient, you 
+						can set an angle, which defines the way the linear gradient is developing within the node. For radial gradients you can define the center, where the radial 
+						gradient starts using a vertical and horizontal offset in percent. The fill color and the gradient color define the color range to be used. 
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="formatFillGradient"></pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.formatFillGradient()">
+						Fill with Gradient
+					</button>
+					<p>
+						The final fill style is the pattern fill. To apply a pattern you need to provide an URL to an image on any server. The pattern is displayed using the
+						available Pattern styles. They are used to display a pattern either stretched, proportionally or repeated.
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="formatFillPattern"></pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.formatFillPattern()">
+						Fill with Pattern
+					</button>
+					<h2>Text Formatting</h2>
+					<p>
+						Text can be formatted using different font settings. You can apply a font name, font size and the font styles. In addition you can set the text
+						position with the parent node. You can have more than one label attached to a node. Each label can have its own font settings. In the following
+						sample you can see how the font settings are applied and their effect.
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="formatTextFont"></pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.formatTextFont()">
+						Format Text
+					</button>
+					<p>
+						Following you can see, how muliple labels are attached to a node and how the position of a label can be defined. As an alternative, you could also
+						set the coordinates of the label, as a label is also a node. 
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="formatTextPosition"></pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.formatTextPosition()">
+						Set Text Position
+					</button>
+					<p class="hint">
+						If the Graph has the input focus and a node is selected, you can hit Ctrl-Shift-c on the keyboard to copy the format information of an object.
+						Then you can select another object and hit Ctrl-Shift-v to paste only the format information and apply it to the object.
+					</p>
+					<p>
+						This was the final step for this tutorial.  
+					</p>
+					<p>&nbsp;</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

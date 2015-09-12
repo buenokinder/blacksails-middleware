@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<arac xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="aracschema.xsd">
+
+  <force name="Force-CenterPoints" layoutOtrigin="2000,2000" nodeDistance="3200" iterations="120">
+    <edgemappingset name="CenterPoints" />
+  </force>
+  <force name="Force-CenterPoints-Anim" layoutOtrigin="2000,2000" nodeDistance="2000" iterations="1">
+    <edgemappingset name="CenterPoints" />
+  </force>
+
+  <flow name="Flow-CardinalPoints" layoutOrigin="2000,2000" nodeDistance="1000" layerDistance="1500" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+  <flow name="Flow-CardinalPoints-Orth" layoutOrigin="2000,2000" nodeDistance="1000" layerDistance="1500"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+
+  <flow name="Flow-TTB-N" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" nodeDistance="1000" layerDistance="1500"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+  <flow name="Flow-BTT-N" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" nodeDistance="1000" layerDistance="1500"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+  <flow name="Flow-LTR-N" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" nodeDistance="1000" layerDistance="1500"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+  <flow name="Flow-RTL-N" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" nodeDistance="1000" layerDistance="1500"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+
+  <flow name="Flow-TTB-LP" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" nodeDistance="1000" layerDistance="1500" pathBalancing="LongestPath"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+  <flow name="Flow-BTT-LP" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" nodeDistance="1000" layerDistance="1500" pathBalancing="LongestPath"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+  <flow name="Flow-LTR-LP" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" nodeDistance="1000" layerDistance="1500" pathBalancing="LongestPath"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+  <flow name="Flow-RTL-LP" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" nodeDistance="1000" layerDistance="1500" pathBalancing="LongestPath"
+        edgeType="Orthogonal" >
+    <edgemappingset name="Flow-CardinalPoints" />
+  </flow>
+
+  <tree name="Tree-Default" layoutOrigin="2000,2000" />
+  <tree name="Tree-CardinalPoints" layoutOrigin="2000,2000" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+    <edgemappingset name="TreeLS-CardinalPoints" />
+    <edgemappingset name="TreeLD-CardinalPoints" />
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+  <tree name="Tree-CardinalPoints-Orth" layoutOrigin="2000,2000" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+    <edgemappingset name="TreeLS-CardinalPoints" />
+    <edgemappingset name="TreeLD-CardinalPoints" />
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+
+  <chain name="OrgChart-Demo" configs="OrgChart-Demo2,OrgChart-Demo1" />
+  <tree name="OrgChart-Demo1" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" edgeTypeDesc="lineCorners:200" tags="orgmanager, orgperson" careAnnex="true" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<!-- treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="500" layerDistance="-1000"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target" tags="orgmanager, orgperson" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+	</treelevel -->
+	<node tag="orgmanager" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+          edgeType="Orthogonal" edgeTypeDesc="lineCorners:200" tags="orgmanager, orgperson" careAnnex="true" >
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</node>
+	<node tag="orgperson" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="500" layerDistance="-1000"
+          edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:200" tags="orgperson, orgmanager" careAnnex="true" tagsNonAnnex="orgmanager" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+	</node>
+  </tree>
+  <tree name="OrgChart-Demo2" treeStyle="TreeNormal" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" nodeDistance="500" layerDistance="-500"
+        tags="orgmanager, orgperson, orgassistent" careAnnex="true" tagsNonAnnex="orgmanager, orgperson" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<node tag="orgmanager" subsequent="false" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="500" layerDistance="-500"
+          edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:200" tags="orgmanager, orgassistent" careAnnex="true" tagsNonAnnex="orgperson, orgmanager" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+	</node>
+	<node tag="orgperson" subsequent="false" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="500" layerDistance="-500"
+          edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:200" tags="orgperson, orgassistent" careAnnex="true" tagsNonAnnex="orgperson, orgmanager" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+	</node>
+  </tree>
+  <!-- tree name="OrgChart-Demo3" treeStyle="TreeNormal" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" nodeDistance="1000" layerDistance="-500"
+        tags="orgmanager, orgperson, orgservant" careAnnex="true" tagsNonAnnex="orgmanager, orgperson, orgassistent" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<node tag="orgmanager" subsequent="false" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="-500"
+          edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:500" tags="orgmanager, orgservant" careAnnex="true" tagsNonAnnex="orgperson, orgassistent" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+	</node>
+	<node tag="orgperson" subsequent="false" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="-500"
+          edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:500" tags="orgperson, orgservant" careAnnex="true" tagsNonAnnex="orgmanager, orgassistent" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+	</node>
+  </tree -->
+
+  <tree name="Tree-Lo.TB" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.BT" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.LR" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.RL" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+
+  <tree name="Tree-Lo.TB-Pb.H" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" parentBalancing="Head" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.BT-Pb.H" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" parentBalancing="Head" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.LR-Pb.H" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" parentBalancing="Head" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.RL-Pb.H" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" parentBalancing="Head" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+
+  <tree name="Tree-Lo.TB-Pb.T" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" parentBalancing="Tail" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.BT-Pb.T" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" parentBalancing="Tail" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.LR-Pb.T" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" parentBalancing="Tail" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+  <tree name="Tree-Lo.RL-Pb.T" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" parentBalancing="Tail" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+  </tree>
+
+  <tree name="ListS-Lo.TB-Pb.HM" treeStyle="TreeListSingle" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+  </tree>
+  <tree name="ListS-Lo.BT-Pb.HM" treeStyle="TreeListSingle" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+  </tree>
+  <tree name="ListS-Lo.LR-Pb.HM" treeStyle="TreeListSingle" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+  </tree>
+  <tree name="ListS-Lo.RL-Pb.HM" treeStyle="TreeListSingle" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+  </tree>
+  <tree name="ListS-Lo.TB-Pb.T" treeStyle="TreeListSingle" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" parentBalancing="Tail" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+  </tree>
+  <tree name="ListS-Lo.BT-Pb.T" treeStyle="TreeListSingle" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" parentBalancing="Tail" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+  </tree>
+  <tree name="ListS-Lo.LR-Pb.T" treeStyle="TreeListSingle" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" parentBalancing="Tail" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+  </tree>
+  <tree name="ListS-Lo.RL-Pb.T" treeStyle="TreeListSingle" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" parentBalancing="Tail" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+  </tree>
+
+  <tree name="ListD-Lo.TB" treeStyle="TreeListDouble" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+  </tree>
+  <tree name="ListD-Lo.BT" treeStyle="TreeListDouble" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+  </tree>
+  <tree name="ListD-Lo.LR" treeStyle="TreeListDouble" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+  </tree>
+  <tree name="ListD-Lo.RL" treeStyle="TreeListDouble" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+  </tree>
+  
+  <tree name="HV-Lo.TB-Pb.HM" treeStyle="TreeHV" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" nodeDistance="500" layerDistance="1000"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+  <tree name="HV-Lo.BT-Pb.HM" treeStyle="TreeHV" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" nodeDistance="500" layerDistance="1000"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+  <tree name="HV-Lo.LR-Pb.HM" treeStyle="TreeHV" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" nodeDistance="500" layerDistance="1000"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+  <tree name="HV-Lo.RL-Pb.HM" treeStyle="TreeHV" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" nodeDistance="500" layerDistance="1000"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+  <tree name="HV-Lo.TB-Pb.T" treeStyle="TreeHV" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" parentBalancing="Tail" nodeDistance="500" layerDistance="1000"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+  <tree name="HV-Lo.BT-Pb.T" treeStyle="TreeHV" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" parentBalancing="Tail" nodeDistance="500" layerDistance="1000"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+  <tree name="HV-Lo.LR-Pb.T" treeStyle="TreeHV" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" parentBalancing="Tail" nodeDistance="500" layerDistance="1000"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+  <tree name="HV-Lo.RL-Pb.T" treeStyle="TreeHV" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" parentBalancing="Tail" nodeDistance="500" layerDistance="1000"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeHV-CardinalPoints" />
+  </tree>
+
+  <tree name="OrgChart-TreeInTree-ToBottom1" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToBottom2" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToBottom3" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToTop1" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToTop2" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToTop3" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToRight1" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToRight2" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToRight3" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToLeft1" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToLeft2" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInTree-ToLeft3" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+
+  <tree name="OrgChart-ListInTree-ToBottom1" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" edgeTypeDesc="lineCorners:150" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:150" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToBottom2" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToBottom3" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToBottom4" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" edgeTypeDesc="lineCorners:150" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:150" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToTop1" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToTop2" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToTop3" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToRight1" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" edgeTypeDesc="lineCorners:150" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:150" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToRight2" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToRight3" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" edgeTypeDesc="lineCorners:150" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:150" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToRight4" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" edgeTypeDesc="lineCorners:150" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:150" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToLeft1" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToLeft2" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListInTree-ToLeft3" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        	   edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+      <edgemappingset name="TreeLS-CardinalPoints" />
+    </treelevel>
+  </tree>
+
+  <tree name="OrgChart-TreeInList-ToBottom1" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToBottom2" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToBottom3" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToTop1" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToTop2" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToTop3" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToRight1" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToRight2" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToRight3" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToLeft1" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToLeft2" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInList-ToLeft3" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+
+  <tree name="OrgChart-ListInList-ToBottom1" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToBottom2" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToBottom3" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToTop1" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToTop2" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToTop3" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToRight1" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToRight2" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToRight3" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToLeft1" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToLeft2" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+  <tree name="OrgChart-ListInList-ToLeft3" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target" >
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="0" edgeType="ElbowTgt" />
+  </tree>
+
+  <tree name="OrgChart-ListDInTree-ToBottom1" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToBottom2" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToBottom3" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToBottom4" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" edgeTypeDesc="lineCorners:150" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:150; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToTop1" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToTop2" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToTop3" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToRight1" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000"
+        edgeType="Orthogonal" edgeTypeDesc="lineCorners:150" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; lineCorners:150; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToRight2" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToRight3" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToLeft1" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToLeft2" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInTree-ToLeft3" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+
+  <tree name="OrgChart-TreeInListD-ToBottom1" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToBottom2" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToBottom3" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToTop1" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToTop2" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToTop3" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToRight1" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToRight2" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToRight3" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToLeft1" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToLeft2" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-TreeInListD-ToLeft3" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+
+  <tree name="OrgChart-ListDInListD-ToBottom1" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToBottom2" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToBottom3" layoutOrigin="2000,2000" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToTop1" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToTop2" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToTop3" layoutOrigin="2000,2000" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToRight1" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToRight2" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToRight3" layoutOrigin="2000,2000" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToLeft1" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="TopToBottom" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToLeft2" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="BottomToTop" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+  <tree name="OrgChart-ListDInListD-ToLeft3" layoutOrigin="2000,2000" layoutOrientation="RightToLeft" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+        edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+    <edgemappingset name="TreeLD-CardinalPoints" />
+	<treelevel level="4" layoutOrientation="LeftToRight" treeStyle="TreeListDouble" nodeDistance="1000" layerDistance="0"
+               edgeType="Elbow" edgeTypeDesc="elbow:Target; srcSlope:250" >
+      <edgemappingset name="TreeLD-CardinalPoints" />
+    </treelevel>
+  </tree>
+
+  <tree name="OrgChart-L0Tree-L3ListSingle-L5Tree" layoutOrigin="2000,2000" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000" >
+    <edgemappingset name="TreeN-CardinalPoints" />
+	<treelevel level="3" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="-500" edgeType="Elbow" edgeTypeDesc="elbow:Target">
+      <edgemappingset name="TreeLS-CardinalPoints" />
+	</treelevel>
+	<treelevel level="5" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeN-CardinalPoints" />
+	</treelevel>
+  </tree>
+  <tree name="OrgChart-L0ListSingle-L3Tree-L6ListSingle" layoutOrigin="2000,2000" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="-5000" edgeType="ElbowTgtSlopedSrc" >
+    <edgemappingset name="TreeLS-CardinalPoints" />
+	<treelevel level="3" treeStyle="TreeNormal" nodeDistance="500" layerDistance="1000">
+      <edgemappingset name="TreeLS-CardinalPoints" />
+	</treelevel>
+	<treelevel level="6" treeStyle="TreeListSingle" nodeDistance="1000" layerDistance="-500" edgeType="Elbow" edgeTypeDesc="elbow:Target">
+      <edgemappingset name="TreeLS-CardinalPoints" />
+	</treelevel>
+  </tree>
+
+  <grid name="Grid-Default" layoutOrigin="2000,2000" />
+  <!-- in zeilen bis x objekte /-->  
+  <grid name="GridDistance-RowPxPy" layoutOrigin="2000,2000" type="GridFlowDistance" direction="RowFlow" cellCount="10" colGap="500" rowGap="500" />
+  <grid name="GridDistance-RowNxPy" layoutOrigin="2000,2000" type="GridFlowDistance" direction="RowFlow" cellCount="10" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridDistance-RowPxNy" layoutOrigin="2000,2000" type="GridFlowDistance" direction="RowFlow" cellCount="10" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridDistance-RowNxNy" layoutOrigin="2000,2000" type="GridFlowDistance" direction="RowFlow" cellCount="10" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <!-- in zeilen bis ausdehnung /-->  
+  <grid name="GridDistance-RowPxPy-ext" layoutOrigin="2000,2000" type="GridFlowDistance" direction="RowFlow" cellExtend="10000" colGap="500" rowGap="500" />
+  <grid name="GridDistance-RowNxPy-ext" layoutOrigin="2000,2000" type="GridFlowDistance" direction="RowFlow" cellExtend="10000" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridDistance-RowPxNy-ext" layoutOrigin="2000,2000" type="GridFlowDistance" direction="RowFlow" cellExtend="10000" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridDistance-RowNxNy-ext" layoutOrigin="2000,2000" type="GridFlowDistance" direction="RowFlow" cellExtend="10000" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <!-- in spalten bis x objekte /-->  
+  <grid name="GridDistance-ColPxPy" layoutOrigin="2000,2000" type="GridFlowDistance" direction="ColFlow" cellCount="10" colGap="500" rowGap="500" />
+  <grid name="GridDistance-ColNxPy" layoutOrigin="2000,2000" type="GridFlowDistance" direction="ColFlow" cellCount="10" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridDistance-ColPxNy" layoutOrigin="2000,2000" type="GridFlowDistance" direction="ColFlow" cellCount="10" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridDistance-ColNxNy" layoutOrigin="2000,2000" type="GridFlowDistance" direction="ColFlow" cellCount="10" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <!-- in spalten bis ausdehnung /-->  
+  <grid name="GridDistance-ColPxPy-ext" layoutOrigin="2000,2000" type="GridFlowDistance" direction="ColFlow" cellExtend="10000" colGap="500" rowGap="500" />
+  <grid name="GridDistance-ColNxPy-ext" layoutOrigin="2000,2000" type="GridFlowDistance" direction="ColFlow" cellExtend="10000" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridDistance-ColPxNy-ext" layoutOrigin="2000,2000" type="GridFlowDistance" direction="ColFlow" cellExtend="10000" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridDistance-ColNxNy-ext" layoutOrigin="2000,2000" type="GridFlowDistance" direction="ColFlow" cellExtend="10000" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <grid name="GridRaster-RowPxPy" layoutOrigin="2000,2000" type="GridFlowRaster" direction="RowFlow" cellCount="10" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" />
+  <grid name="GridRaster-RowNxPy" layoutOrigin="2000,2000" type="GridFlowRaster" direction="RowFlow" cellCount="10" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridRaster-RowPxNy" layoutOrigin="2000,2000" type="GridFlowRaster" direction="RowFlow" cellCount="10" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridRaster-RowNxNy" layoutOrigin="2000,2000" type="GridFlowRaster" direction="RowFlow" cellCount="10" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <grid name="GridRaster-RowPxPy-ext" layoutOrigin="2000,2000" type="GridFlowRaster" direction="RowFlow" cellExtend="10000" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" />
+  <grid name="GridRaster-RowNxPy-ext" layoutOrigin="2000,2000" type="GridFlowRaster" direction="RowFlow" cellExtend="10000" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridRaster-RowPxNy-ext" layoutOrigin="2000,2000" type="GridFlowRaster" direction="RowFlow" cellExtend="10000" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridRaster-RowNxNy-ext" layoutOrigin="2000,2000" type="GridFlowRaster" direction="RowFlow" cellExtend="10000" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <grid name="GridRaster-ColPxPy" layoutOrigin="2000,2000" type="GridFlowRaster" direction="ColFlow" cellCount="10" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" />
+  <grid name="GridRaster-ColNxPy" layoutOrigin="2000,2000" type="GridFlowRaster" direction="ColFlow" cellCount="10" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridRaster-ColPxNy" layoutOrigin="2000,2000" type="GridFlowRaster" direction="ColFlow" cellCount="10" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridRaster-ColNxNy" layoutOrigin="2000,2000" type="GridFlowRaster" direction="ColFlow" cellCount="10" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <grid name="GridRaster-ColPxPy-ext" layoutOrigin="2000,2000" type="GridFlowRaster" direction="ColFlow" cellExtend="10000" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" />
+  <grid name="GridRaster-ColNxPy-ext" layoutOrigin="2000,2000" type="GridFlowRaster" direction="ColFlow" cellExtend="10000" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridRaster-ColPxNy-ext" layoutOrigin="2000,2000" type="GridFlowRaster" direction="ColFlow" cellExtend="10000" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridRaster-ColNxNy-ext" layoutOrigin="2000,2000" type="GridFlowRaster" direction="ColFlow" cellExtend="10000" cellWidth="2000" cellHeight="2000" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <grid name="GridGridback-RowPxPy" layoutOrigin="2000,2000" type="GridFlowGridback" direction="RowFlow" cellCount="10" colGap="500" rowGap="500" />
+  <grid name="GridGridback-RowNxPy" layoutOrigin="2000,2000" type="GridFlowGridback" direction="RowFlow" cellCount="10" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridGridback-RowPxNy" layoutOrigin="2000,2000" type="GridFlowGridback" direction="RowFlow" cellCount="10" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridGridback-RowNxNy" layoutOrigin="2000,2000" type="GridFlowGridback" direction="RowFlow" cellCount="10" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <grid name="GridGridback-RowPxPy-ext" layoutOrigin="2000,2000" type="GridFlowGridback" direction="RowFlow" cellExtend="10000" colGap="500" rowGap="500" />
+  <grid name="GridGridback-RowNxPy-ext" layoutOrigin="2000,2000" type="GridFlowGridback" direction="RowFlow" cellExtend="10000" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridGridback-RowPxNy-ext" layoutOrigin="2000,2000" type="GridFlowGridback" direction="RowFlow" cellExtend="10000" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridGridback-RowNxNy-ext" layoutOrigin="2000,2000" type="GridFlowGridback" direction="RowFlow" cellExtend="10000" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <grid name="GridGridback-ColPxPy" layoutOrigin="2000,2000" type="GridFlowGridback" direction="ColFlow" cellCount="10" colGap="500" rowGap="500" />
+  <grid name="GridGridback-ColNxPy" layoutOrigin="2000,2000" type="GridFlowGridback" direction="ColFlow" cellCount="10" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridGridback-ColPxNy" layoutOrigin="2000,2000" type="GridFlowGridback" direction="ColFlow" cellCount="10" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridGridback-ColNxNy" layoutOrigin="2000,2000" type="GridFlowGridback" direction="ColFlow" cellCount="10" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+  
+  <grid name="GridGridback-ColPxPy-ext" layoutOrigin="2000,2000" type="GridFlowGridback" direction="ColFlow" cellExtend="10000" colGap="500" rowGap="500" />
+  <grid name="GridGridback-ColNxPy-ext" layoutOrigin="2000,2000" type="GridFlowGridback" direction="ColFlow" cellExtend="10000" colGap="500" rowGap="500" xAscending="false" />
+  <grid name="GridGridback-ColPxNy-ext" layoutOrigin="2000,2000" type="GridFlowGridback" direction="ColFlow" cellExtend="10000" colGap="500" rowGap="500" yAscending="false" />
+  <grid name="GridGridback-ColNxNy-ext" layoutOrigin="2000,2000" type="GridFlowGridback" direction="ColFlow" cellExtend="10000" colGap="500" rowGap="500" xAscending="false" yAscending="false" />
+
+  <!-- grid name="LanesHorizontal" type="GridFlowGridback" direction="RowFlow" cellCount="1" colGap="0" rowGap="0" xNodeScaling="AreaExtend" / -->
+  <!-- grid name="LanesVertical" type="GridFlowGridback" direction="ColFlow" cellCount="1" colGap="0" rowGap="0" yNodeScaling="AreaExtend" / -->
+
+  <edgemappingset name="CenterPoints" >
+    <edgemapping>
+      <config srcPortPos="Center,Center" tgtPortPos="Center,Center" />
+    </edgemapping>
+  </edgemappingset>
+  <edgemappingset name="Flow-CardinalPoints" >
+    <edgemapping>
+      <propval prop="layoutOrientation" value="TopToBottom" />
+      <config srcPortPos="Center,Bottom" tgtPortPos="Center,Top" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="layoutOrientation" value="BottomToTop" />
+      <config srcPortPos="Center,Top" tgtPortPos="Center,Bottom" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="layoutOrientation" value="LeftToRight" />
+      <config srcPortPos="Right,Center" tgtPortPos="Left,Center" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="layoutOrientation" value="RightToLeft" />
+      <config srcPortPos="Left,Center" tgtPortPos="Right,Center" />
+    </edgemapping>
+  </edgemappingset>
+  <edgemappingset name="TreeN-CardinalPoints" >
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeNormal" />
+      <propval prop="layoutOrientation" value="TopToBottom" />
+      <config srcPortPos="Center,Bottom" tgtPortPos="Center,Top" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeNormal" />
+      <propval prop="layoutOrientation" value="BottomToTop" />
+      <config srcPortPos="Center,Top" tgtPortPos="Center,Bottom" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeNormal" />
+      <propval prop="layoutOrientation" value="LeftToRight" />
+      <config srcPortPos="Right,Center" tgtPortPos="Left,Center" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeNormal" />
+      <propval prop="layoutOrientation" value="RightToLeft" />
+      <config srcPortPos="Left,Center" tgtPortPos="Right,Center" />
+    </edgemapping>
+  </edgemappingset>
+  <edgemappingset name="TreeLS-CardinalPoints" >
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListSingle" />
+      <propval prop="layoutOrientation" value="TopToBottom" />
+      <propval prop="parentBalancing" value="Head, Median" />
+      <config srcPortPos="Center,Bottom" tgtPortPos="Left,Center" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListSingle" />
+      <propval prop="layoutOrientation" value="BottomToTop" />
+      <propval prop="parentBalancing" value="Head, Median" />
+      <config srcPortPos="Center,Top" tgtPortPos="Left,Center" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListSingle" />
+      <propval prop="layoutOrientation" value="LeftToRight" />
+      <propval prop="parentBalancing" value="Head, Median" />
+      <config srcPortPos="Right,Center" tgtPortPos="Center,Top" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListSingle" />
+      <propval prop="layoutOrientation" value="RightToLeft" />
+      <propval prop="parentBalancing" value="Head, Median" />
+      <config srcPortPos="Left,Center" tgtPortPos="Center,Top" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListSingle" />
+      <propval prop="layoutOrientation" value="TopToBottom" />
+      <propval prop="parentBalancing" value="Tail" />
+      <config srcPortPos="Center,Bottom" tgtPortPos="Right,Center" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListSingle" />
+      <propval prop="layoutOrientation" value="BottomToTop" />
+      <propval prop="parentBalancing" value="Tail" />
+      <config srcPortPos="Center,Top" tgtPortPos="Right,Center" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListSingle" />
+      <propval prop="layoutOrientation" value="LeftToRight" />
+      <propval prop="parentBalancing" value="Tail" />
+      <config srcPortPos="Right,Center" tgtPortPos="Center,Bottom" />
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListSingle" />
+      <propval prop="layoutOrientation" value="RightToLeft" />
+      <propval prop="parentBalancing" value="Tail" />
+      <config srcPortPos="Left,Center" tgtPortPos="Center,Bottom" />
+    </edgemapping>
+  </edgemappingset>
+  <edgemappingset name="TreeLD-CardinalPoints" >
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListDouble" />
+      <propval prop="layoutOrientation" value="TopToBottom" />
+      <config srcPortPos="Center,Bottom" tgtPortPos="Right,Center" />
+      <alternatives><config srcPortPos="Center,Bottom" tgtPortPos="Left,Center" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListDouble" />
+      <propval prop="layoutOrientation" value="BottomToTop" />
+      <config srcPortPos="Center,Top" tgtPortPos="Right,Center" />
+      <alternatives><config srcPortPos="Center,Top" tgtPortPos="Left,Center" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListDouble" />
+      <propval prop="layoutOrientation" value="LeftToRight" />
+      <config srcPortPos="Right,Center" tgtPortPos="Center,Bottom" />
+      <alternatives><config srcPortPos="Right,Center" tgtPortPos="Center,Top" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeListDouble" />
+      <propval prop="layoutOrientation" value="RightToLeft" />
+      <config srcPortPos="Left,Center" tgtPortPos="Center,Bottom" />
+      <alternatives><config srcPortPos="Left,Center" tgtPortPos="Center,Top" /></alternatives>
+    </edgemapping>
+  </edgemappingset>
+  <edgemappingset name="TreeHV-CardinalPoints" >
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeHV" />
+      <propval prop="layoutOrientation" value="TopToBottom" />
+      <propval prop="parentBalancing" value="Head,Median" />
+      <config srcPortPos="Center,Bottom" tgtPortPos="Left,Center" />
+      <alternatives><config srcPortPos="Right,Center" tgtPortPos="Center,Top" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeHV" />
+      <propval prop="layoutOrientation" value="BottomToTop" />
+      <propval prop="parentBalancing" value="Head,Median" />
+      <config srcPortPos="Center,Top" tgtPortPos="Left,Center" />
+      <alternatives><config srcPortPos="Right,Center" tgtPortPos="Center,Bottom" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeHV" />
+      <propval prop="layoutOrientation" value="LeftToRight" />
+      <propval prop="parentBalancing" value="Head,Median" />
+      <config srcPortPos="Right,Center" tgtPortPos="Center,Top" />
+      <alternatives><config srcPortPos="Center,Bottom" tgtPortPos="Left,Center" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeHV" />
+      <propval prop="layoutOrientation" value="RightToLeft" />
+      <propval prop="parentBalancing" value="Head,Median" />
+      <config srcPortPos="Left,Center" tgtPortPos="Center,Top" />
+      <alternatives><config srcPortPos="Center,Bottom" tgtPortPos="Right,Center" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeHV" />
+      <propval prop="layoutOrientation" value="TopToBottom" />
+      <propval prop="parentBalancing" value="Tail" />
+      <config srcPortPos="Center,Bottom" tgtPortPos="Center,Bottom" />
+      <alternatives><config srcPortPos="Left,Center" tgtPortPos="Center,Top" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeHV" />
+      <propval prop="layoutOrientation" value="BottomToTop" />
+      <propval prop="parentBalancing" value="Tail" />
+      <config srcPortPos="Center,Top" tgtPortPos="Right,Center" />
+      <alternatives><config srcPortPos="Left,Center" tgtPortPos="Center,Bottom" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeHV" />
+      <propval prop="layoutOrientation" value="LeftToRight" />
+      <propval prop="parentBalancing" value="Tail" />
+      <config srcPortPos="Right,Center" tgtPortPos="Center,Bottom" />
+      <alternatives><config srcPortPos="Center,Top" tgtPortPos="Left,Center" /></alternatives>
+    </edgemapping>
+    <edgemapping>
+      <propval prop="treeStyle" value="TreeHV" />
+      <propval prop="layoutOrientation" value="RightToLeft" />
+      <propval prop="parentBalancing" value="Tail" />
+      <config srcPortPos="Left,Center" tgtPortPos="Center,Bottom" />
+      <alternatives><config srcPortPos="Center,Top" tgtPortPos="Right,Center" /></alternatives>
+    </edgemapping>
+  </edgemappingset>
+
+</arac>

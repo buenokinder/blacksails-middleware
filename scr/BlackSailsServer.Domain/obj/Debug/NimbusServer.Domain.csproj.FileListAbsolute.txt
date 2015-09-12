@@ -1,0 +1,5 @@
+c:\sistemas\NimbusServer.Domain\bin\Debug\NimbusServer.Domain.dll
+c:\sistemas\NimbusServer.Domain\bin\Debug\NimbusServer.Domain.pdb
+c:\sistemas\NimbusServer.Domain\obj\Debug\NimbusServer.Domain.csprojResolveAssemblyReference.cache
+c:\sistemas\NimbusServer.Domain\obj\Debug\NimbusServer.Domain.dll
+c:\sistemas\NimbusServer.Domain\obj\Debug\NimbusServer.Domain.pdb

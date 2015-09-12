@@ -1,0 +1,9 @@
+c:\sistemas\NimbusServer.Domain\bin\Debug\NimbusServer.Domain.dll
+c:\sistemas\NimbusServer.Domain\bin\Debug\NimbusServer.Domain.pdb
+c:\sistemas\NimbusServer.Domain\obj\Debug\BackSails.Domain.csprojResolveAssemblyReference.cache
+c:\sistemas\NimbusServer.Domain\obj\Debug\NimbusServer.Domain.dll
+c:\sistemas\NimbusServer.Domain\obj\Debug\NimbusServer.Domain.pdb
+C:\Sistemas\BlackSailsServer.Domain\bin\Debug\NimbusServer.Domain.dll
+C:\Sistemas\BlackSailsServer.Domain\bin\Debug\NimbusServer.Domain.pdb
+C:\Sistemas\BlackSailsServer.Domain\obj\Debug\NimbusServer.Domain.dll
+C:\Sistemas\BlackSailsServer.Domain\obj\Debug\NimbusServer.Domain.pdb
