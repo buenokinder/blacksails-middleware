@@ -1,0 +1,31 @@
+{
+    "data": [
+        
+        {
+            "label": "HTML",
+            "children": [
+                {
+                    "label": "style.css",
+                    "path": "source/css/style.css"
+                },
+                {
+                    "label": "style2.css",
+                    "path": "source/css/style2.css"
+                }
+            ]
+        },
+        {
+            "label": "js",
+            "children": [
+                {
+                    "label": "script.js",
+                    "path": "source/js/script.js"
+                }
+            ]
+        },
+        {
+            "label": "index.html",
+            "path": "source/index.html"
+        }
+    ]
+}

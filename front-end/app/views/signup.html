@@ -1,0 +1,12 @@
+﻿<form class="form-login" role="form">
+    <h2 class="form-login-heading">Registrar-se</h2>
+    <input type="hidden"  data-ng-model="registration.Id" >
+    <input type="text" class="form-control" placeholder="Nome" data-ng-model="registration.Nome" required autofocus>
+    <input type="text" class="form-control" placeholder="Email" data-ng-model="registration.Email" required>
+    <input type="password" class="form-control" placeholder="Password" data-ng-model="registration.Senha" required>
+    <input type="password" class="form-control" placeholder="Confirm Password" data-ng-model="registration.confirmPassword" required>
+    <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="signUp()">Submit</button>
+    <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+        {{message}}
+    </div>
+</form>

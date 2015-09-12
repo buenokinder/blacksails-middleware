@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+
+<html data-ng-app="NimbusApp">
+<head>
+    <meta charset="utf-8" />
+    
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <title>Sennit Api Builder</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+ <!-- =============== VENDOR STYLES ===============-->
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="app/vendor/fontawesome/css/font-awesome.min.css">
+    <!-- SIMPLE LINE ICONS-->
+    <link rel="stylesheet" href="app/vendor/simple-line-icons/css/simple-line-icons.css">
+    <!-- ANIMATE.CSS-->
+    <link rel="stylesheet" href="app/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/scripts/abn_tree.css">
+    <link href="font/typicons.css" rel="stylesheet" />
+    <!-- WHIRL (spinners)-->
+    <link rel="stylesheet" href="app/vendor/whirl/dist/whirl.css">
+    <!-- =============== PAGE VENDOR STYLES ===============-->
+    <!-- WEATHER ICONS-->
+    <link rel="stylesheet" href="app/vendor/weather-icons/css/weather-icons.min.css">
+    <!-- =============== APP STYLES ===============-->
+    <link rel="stylesheet" href="app/css/app.css" id="maincss">
+  
+    
+    <script src="/Scripts/Js/jquery.1.7.min.js"></script>
+    <script src="/Scripts/Js/moment-with-langs.min.js"></script>
+    <script src="/Scripts/Js/bootstrap.min.js"></script>
+
+</head>     
+        
+        
+
+<body>
+<div class="wrapper" data-ng-controller="indexController as indexCtrl">
+    <!-- top navbar-->
+    <header class="topnavbar-wrapper">
+        <!-- START Top Navbar-->
+        <nav role="navigation" class="navbar topnavbar">
+            <!-- START navbar header-->
+            <div class="navbar-header">
+                <a href="#/dashboard" class="navbar-brand navbar-left">
+                    <div class="brand-logo navbar-left">
+                        <span class="typcn typcn-weather-stormy typcn-th-large" style="color: white; font-size: 50px;"></span>
+                        <!--<img src="img/nimbus2.png" alt="App Logo" class="img-responsive">-->
+                        <span style="color: white; font-size: 20px; font-family: Arial">sennit nimbus</span>
+                    </div>
+                    <div class="brand-logo-collapsed">
+                        <span class="typcn typcn-weather-stormy typcn-th-large" style="color: white; font-size: 50px;"></span>
+                    </div>
+                </a>
+            </div>
+           
+            <!-- END navbar header-->
+            <!-- START Nav wrapper-->
+            <div class="nav-wrapper">
+
+                <!-- START Left navbar-->
+                <ul class="nav navbar-nav">
+                    <li  data-ng-show="authentication.isAuth">
+                        <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                        <a  data-toggle-state="aside-collapsed" class="hidden-xs">
+                            <em class="fa fa-navicon"></em>
+                        </a>
+                        <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+                        <a href="#teste" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                            <em class="fa fa-navicon"></em>
+                        </a>
+                    </li>
+                    <!-- START User avatar toggle-->
+                  
+                    
+                    <!-- END lock screen-->
+                </ul>
+                <!-- END Left navbar-->
+                <!-- START Right Navbar-->
+                <ul class="nav navbar-nav navbar-right"  data-ng-show="authentication.isAuth">
+                    <!-- Search icon-->
+                   
+                    <li class="visible-lg">
+                        <a href="#" data-toggle-fullscreen="">
+                            <em class="fa fa-expand"></em>
+                        </a>
+                    </li>
+                    <!-- START Alert menu-->
+                    <li class="visible-lg">
+                        <ul dropdown="dropdown" class="nav navbar-nav navbar-right" >
+                            <li dropdown-toggle="" class="dropdown-toggle dropdown " aria-haspopup="true" aria-expanded="false">
+                               <!--  <img class="nav-user-photo" src="img/user.jpg"> -->
+                                <span class="user-info">
+                                    <small>Bem vindo,</small>
+                                    {{authentication.userName}}
+                                </span>
+
+
+                                <span class="caret"></span>
+                                <span class="sr-only">success</span>
+                            </li>
+                            <ul role="menu" class="dropdown-menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="ace-icon fa fa-cog"></i>
+                                        Configurações
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="profile.html">
+                                        <i class="ace-icon fa fa-user"></i>
+                                        Perfil
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li data-ng-show="authentication.isAuth">
+                                    <a ng-click="indexCtrl.logOut()" title="Logout">
+                                        <i class="ace-icon fa fa-power-off"></i>
+                                        Sair
+
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </ul>
+                        </li>
+                        <!-- END Contacts menu-->
+</ul>
+               
+                <!-- END Right Navbar-->
+
+               
+            </div>
+            <!-- END Nav wrapper-->
+            <!-- START Search form-->
+           
+            <!-- END Search form-->
+        </nav>
+        <!-- END Top Navbar-->
+    </header>
+    <!-- sidebar-->
+    <aside class="aside"  data-ng-show="authentication.isAuth">
+        <!-- START Sidebar (left)-->
+        <div class="aside-inner">
+            <nav data-sidebar-anyclick-close="" class="sidebar">
+                <!-- START sidebar nav-->
+                <ul class="nav">
+                    <!-- START user info-->
+                  
+                    <!-- END user info-->
+                    <!-- Iterates over all sidebar items-->
+                    <li class="nav-heading ">
+                        <span data-localize="sidebar.heading.HEADER">Menu de navegação</span>
+                    </li>
+                    <li class=" ">
+                        <a href="#/sistemas" title="Sistemas" ng-click="DetectTitle('Sistemas')">
+                            <em class="icon-globe"></em>
+                            
+                            <span data-localize="sidebar.nav.SISTEMAS">Sistemas</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="#/usuario" title="usuarios" ng-click="DetectTitle('Usuarios')">
+                            <em class="icon-users"></em>
+
+                            <span data-localize="sidebar.nav.SISTEMAS">Usuarios</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="#/conexoes" title="Conexoes" ng-click="DetectTitle('Conexões')">
+                            <em class="fa fa-database"></em>
+                            
+                            <span data-localize="sidebar.nav.SISTEMAS">Conexoes</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="#/workflow" title="WorkFlow" ng-click="DetectTitle('Workflow')">
+                            <em class="fa fa-sitemap"></em>
+                            
+                            <span data-localize="sidebar.nav.SISTEMAS">WorkFlow</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="#/api" title="Api" ng-click="DetectTitle('Api')">
+                            <em class="icon-cloud-download"></em>
+                            
+                            <span data-localize="sidebar.nav.SISTEMAS">API</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="#/scheduler" title="Scheduller" ng-click="DetectTitle('Scheduller')">
+                            <em class="icon-clock"></em>
+                            
+                            <span data-localize="sidebar.nav.SCHEDULLER">Scheduler</span>
+                        </a>
+                    </li>
+
+                    <li class=" ">
+                        <a href="#/code-editor" title="Editor" ng-click="DetectTitle('Editor')">
+                            <em class="fa fa-pencil-square-o"></em>
+                            
+                            <span data-localize="sidebar.nav.SCHEDULLER">Editor</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-heading ">
+                        <span data-localize="sidebar.heading.MORE">Mais</span>
+                    </li>
+                    <li class=" ">
+                        <a href="#pages" title="Pages" data-toggle="collapse" ng-click="DetectTitle('Ajuda')">
+                            <em class="icon-question"></em>
+                            <span data-localize="sidebar.nav.pages.PAGES">Ajuda</span>
+                        </a>
+
+                    </li>
+
+                </ul>
+                <!-- END sidebar nav-->
+            </nav>
+        </div>
+        <!-- END Sidebar (left)-->
+    </aside>
+    <!-- offsidebar-->
+  
+    <section  >
+        <!-- Page content-->
+        <div class="content-wrapper" >
+         
+            <h3 data-ng-show="authentication.isAuth">
+                {{title}}
+                <small>Nimbus Service 2015</small>
+            </h3>
+            <div ng-view=""></div>
+        </div>
+    </section>
+    <!-- Page footer-->
+    <footer>
+        <span>&copy; 2015 - NIMBUS</span>
+    </footer>
+
+</div>
+   
+
+    
+
+    <!-- 3rd party libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-resource.js"></script>
+
+    
+    <script src="scripts/angular-ui-router.js"></script>
+
+    <script src="app/vendor/angular-ui-codemirror/ui-codemirror.js"></script>
+    <script src="app/vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>  
+    <script src="/scripts/ocLazyLoad.js"></script>
+    <script src="/scripts/abn_tree_directive.js"></script>
+    
+    <!-- MODERNIZR-->
+    <script src="app/vendor/modernizr/modernizr.js"></script>
+    <!-- JQUERY-->
+    <script src="app/vendor/jquery/jquery.js"></script>
+    <!-- BOOTSTRAP-->
+    <script src="app/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="scripts/Js/bootstrapGrow.js"></script>
+
+    <!-- JQUERY EASING-->
+    <script src="app/vendor/jquery.easing/js/jquery.easing.js"></script>
+    <!-- ANIMO-->
+    <script src="app/vendor/animo.js/animo.js"></script>
+    <!-- SLIMSCROLL-->
+    <script src="app/vendor/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- SCREENFULL-->
+    <script src="app/vendor/screenfull/dist/screenfull.js"></script>
+    <!-- LOCALIZE-->
+    <script src="app/vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+       <!-- CLASSY LOADER-->
+    <script src="app/vendor/jquery-classyloader/js/jquery.classyloader.min.js"></script>
+    <!-- MOMENT JS-->
+    <script src="app/vendor/moment/min/moment-with-locales.min.js"></script>
+    <!-- SKYCONS-->
+    <script src="app/vendor/skycons/skycons.js"></script>
+
+    
+
+    <!-- Load app main script -->
+    
+    
+
+    <script src="app/app.js?v=2"></script>
+    <script src="app/services/route-helpers.js"></script>
+    <script src="app/constants.js"></script>
+    <script src="app/config.js?v=2"></script>
+    <script src="scripts/ui-bootstrap-tpls-0.12.0.js"></script>
+    <!-- Load services -->
+    
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/schedulerService.js?v=2"></script>
+    <script src="app/services/assuntoService.js?v=2"></script>
+    <script src="app/services/sistemasService.js?v=2"></script>
+    <script src="app/services/apiService.js?v=2"></script>
+    <script src="app/services/queriesService.js?v=2"></script>
+    <script src="app/services/tokensManagerService.js?v=2"></script>
+    <script src="app/services/conexoesService.js?v=2"></script>
+    <script src="app/services/workflowParametrosService.js"></script>
+    <script src="app/services/workflowServices.js?v=2"></script>
+    <!-- Load controllers -->
+    <script src="app/controllers/loginController.js?v=2"></script>
+    <script src="app/controllers/indexController.js?v=2"></script>
+    <script src="app/controllers/homeController.js?v=2"></script>
+    <!--<script src="app/controllers/assuntoController.js"></script>
+    <script src="app/controllers/conexoesController.js"></script>
+    
+    
+    <script src="app/controllers/workflowController.js"></script
+    <script src="app/controllers/signupController.js?v=2"></script>-->
+    
+    <!-- Load Sistemas Angular Controller -->
+    <script src="app/controllers/Sistemas/Index.js"></script>
+    <script src="app/controllers/Sistemas/Edit.js"></script>
+    <script src="app/controllers/Sistemas/Show.js"></script>
+    <!-- End Load Sistemas Angular Controller -->
+    <!-- Load Conexoes Angular Controller -->
+    <script src="app/controllers/Conexoes/Index.js"></script>
+    <script src="app/controllers/Conexoes/Edit.js"></script>
+    <script src="app/controllers/Conexoes/Show.js"></script>
+    <!-- End Load Conexoes Angular Controller -->
+
+    <!-- Load Api Angular Controller -->
+    <script src="app/controllers/Api/Index.js"></script>
+    <script src="app/controllers/Api/Edit.js"></script>
+    <script src="app/controllers/Api/Show.js"></script>
+    <!-- End Load Api Angular Controller -->
+
+    <!-- Load Editor Angular Controller -->
+    <script src="app/controllers/Editor/code-editor.js"></script>
+
+    <!-- End Load Editor Angular Controller -->
+
+
+    <!-- Load Workflow Angular Controller -->
+    <script src="app/controllers/Workflow/Index.js"></script>
+    <script src="app/controllers/Workflow/Edit.js"></script>
+    <script src="app/controllers/Workflow/Show.js"></script>
+    <!-- End Load Workflow Angular Controller -->
+
+
+    <!-- Load Scheduler Angular Controller -->
+    <script src="app/controllers/Scheduler/Index.js"></script>
+    <script src="app/controllers/Scheduler/Edit.js"></script>
+    <script src="app/controllers/Scheduler/Show.js"></script>
+    <!-- End Load Scheduler Angular Controller -->
+
+    <script src="app/controllers/refreshController.js?v=2"></script>
+    <script src="app/controllers/tokensManagerController.js?v=2"></script>
+    <script src="app/controllers/associateController.js?v=2"></script>
+    <!-- Load custom filters -->
+    <!-- Load custom directives -->
+</body>
+
+</html>
+
+

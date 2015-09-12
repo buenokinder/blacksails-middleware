@@ -1,0 +1,104 @@
+<div data-ng-controller="workflowEditController">
+    <div class="panel panel-default">
+        <!--<div class="panel-heading">Workflow</div>-->
+        <div class="panel-body">
+            <form name="workflowForm" ng-submit="workflowForm.$valid &&  addWorkflow()" novalidate>
+                <fieldset>
+                    <legend>Novo Workflow</legend>
+                    <div class="col-md-12">
+                        <label>Sistema</label>
+                        <select name="sistemaSelect" required class="form-control" ng-model="sistemaSelect" ng-change="changeSelectSistema(sistemaSelect)" ng-options="sistemaSelect.nome for sistemaSelect in sistemas  track by  sistemaSelect.id" required></select>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Nome</label>
+                        <input type="text" required class="form-control" name="nome" placeholder="Digite o nome" ng-model="workflowSelected.nome" >
+                    </div>
+                    <div class="col-md-6">
+                        <label>Parametro</label>
+                        <input type="text" required class="form-control" name="parametro" placeholder="Digite o parametro" ng-model="parametro.parametro">
+                    </div>
+                    <div class="col-md-5">
+                        <label>Valor</label>
+                        <input type="text" required class="form-control" name="valor" placeholder="Digite o valor" ng-model="parametro.valor_cript">
+                    </div>
+                    <div class="col-md-1">
+                        <br />
+                        <a class="btn btn-oval btn-info" ng-click="setAdd()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-md-12">
+                        <br />
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-sennit">
+                                <tr>
+                                    <th class="text-center">Parametro</th>
+                                    <th class="text-center">Valor</th>
+                                    <th class="text-center">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="parametro in parametros">
+                                    <td class="col-md-5">
+                                        {{ parametro.parametro }}
+                                    </td>
+                                    <td class="col-md-5">
+                                        {{ parametro.valor_cript }}
+                                    </td>
+                                    <td class="col-md-2 text-center">
+                                        <button type="button" class="btn btn-oval btn-warning" ng-click="deleteParametros($index)" aria-label="Left Align">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>                 
+                        </table>
+                        <br />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <a class="btn btn-default" ng-href="#/workflow">Cancelar</a>
+                            <input type="submit" class="btn btn-primary" value="Salvar" />
+                        </div>
+
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div>{{message}}</div>
+    </div>
+    
+    <div class="modal fade" data-backdrop="static" id="ConfirmacaoModalDeleteParam">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>Deseja realmente incluir esse registro?</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-default" ng-click=" deleteParametrosConfirmed()">Ok</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" data-backdrop="static" id="SucessoModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>Ação realizada com sucesso.</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <a class="btn btn-default" ng-href="#/workflow">Ok</a>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</div>

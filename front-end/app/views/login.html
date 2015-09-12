@@ -1,0 +1,184 @@
+﻿<div ng-controller="loginController">
+
+    <div class="container">
+        <div class="row row-centered" ng-hide="cadastro">
+            <div class="col-md-10 col-centered">
+                <form role="form">
+
+                    <div class="wrapper">
+                        <div class="block-center mt-xl wd-xl">
+                            <!-- START panel-->
+                            <div class="panel panel-dark panel-flat">
+                                <!--<div class="panel-heading text-center">
+                                    <h3>LOGIN</h3>
+                                </div>-->
+                                <div class="panel-body">
+                                    <p class="text-center pv"><span class="typcn typcn-weather-stormy typcn-th-large" style="color: #23b7e5; font-size: 32px;"></span>&nbsp; ENTRE COM SUAS CREDENCIAIS.</p>
+                                    <form role="form" class="mb-lg">
+                                        <div class="form-group has-feedback">
+                                            <input id="email" type="email" placeholder="Email" autocomplete="off" required class="form-control" data-ng-model="loginData.userName" autofocus>
+                                            <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <input id="senha" type="password" placeholder="Senha" required class="form-control" data-ng-model="loginData.password">
+                                            <span class="fa fa-lock form-control-feedback text-muted"></span>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="pull-right">
+                                                <a href="recover.html" class="text-muted">Esqueceu sua senha?</a>
+                                            </div>
+                                        </div>
+                                        <button type="submit" data-ng-click="login()" class="btn btn-block btn-primary mt-lg">Entrar</button>
+                                    </form>
+                                    <div data-ng-hide="message == ''" class="alert alert-danger">
+                                        <p class="pt-lg text-center">
+                                            {{message}}
+
+                                        </p>
+                                    </div>
+                                    <p class="pt-lg text-center">NÃO POSSUI CONTA?</p><button data-ng-click="cadastrar(true)" class="btn btn-block btn-default">Cadastre-se Aqui</button>
+                                </div>
+                            </div>
+                            <!-- END panel-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-10" ng-show="cadastro">
+
+
+                <form name="formValidates">
+                    <!-- START panel-->
+                    <div class="panel panel-default ">
+                        <div class="panel-body">
+
+                            <fieldset class="b0">
+
+                                <legend><span class="typcn typcn-weather-stormy typcn-th-large" style="color: #23b7e5; font-size: 50px;"></span>    Cadastro - Sennit Nimbus</legend>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nome</label>
+                                    <div class="col-sm-6">
+                                        <input id="nome" type="text" placeholder="Nome" autocomplete="off" required class="form-control" data-ng-model="usuario.nome" autofocus>
+
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-6">
+                                        <input id="email" type="email" placeholder="Email" autocomplete="off" required class="form-control" data-ng-model="usuario.email" autofocus>
+
+                                    </div>
+                              
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Senha</label>
+                                    <div class="col-sm-6">
+                                        <input id="field_pwd1" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers." data-ng-model="usuario.senha"  class="form-control" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1">
+                                        
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Confirma Senha</label>
+                                    <div class="col-sm-6">
+                                        <input id="field_pwd2" title="Please enter the same Password as above." type="password" class="form-control" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2">
+
+                                    </div>
+
+                                </div>
+                            </fieldset>
+
+
+                        </div>
+                        <div class="panel-footer text-center">
+                            <button type="button" class="btn btn-warning"  data-ng-click="cadastrar(false)">Voltar</button>
+                            <button type="submit" class="btn btn-info" >Cadastrar</button>
+                        </div>
+                    </div>
+                    <!-- END panel-->
+                </form>
+            </div>
+
+            <div class="col-md-10" ng-hide="cadastro">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel">
+                            <a href="">
+                                <img src="app/img/rest.png" class="img-responsive">
+                            </a>
+                            <div class="panel-body">
+
+                                <h4>
+                                    <span class="icon-cloud-download"></span>
+                                    <a href="">Gerador de API</a>
+                                </h4>
+                                <p>Com Nimbus podesse criar simples API para todas operações sem necessiade de programação, simplesmente parametrizando.</b>Caso necessite de API´s com regras mais complexas pode criar workflows para essa tarefa.</p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel">
+                            <a href="">
+                                <img src="app/img/banner-workflow1.jpg" class="img-responsive">
+                            </a>
+                            <div class="panel-body">
+
+
+                                <h4>
+                                    <span class="fa fa-sitemap"></span>
+                                    <a href="">Workflow Scheduler</a>
+                                </h4>
+                                <p>Crie workflows e agende seus disparos facilmente, assim pode manter qualquer tipo de integração  executando.  etc.etc.etc</p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel">
+                            <a href="">
+                                <img src="app/img/factory.jpg" class="img-responsive">
+                            </a>
+                            <div class="panel-body">
+
+
+
+                                <h4>
+                                    <span class="fa fa-pencil-square-o"></span>
+                                    <a href="">Gerador de Código</a>
+                                </h4>
+                                <p>Gera código html, js para integrar com as API´s gerada pelo sistema, os códigos gerados usam em HTML5, Angular Js e Bootstrap </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+   
+</div>
+

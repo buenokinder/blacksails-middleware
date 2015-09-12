@@ -1,0 +1,56 @@
+﻿<div data-ng-controller="sistemasEditController as sistemaCtrl">
+    <div class="panel panel-default" >
+        <div class="panel-body">
+            <form name="sistemaForm" ng-submit="sistemaForm.$valid &&  addSistema(sistemaSelected)" novalidate>
+                <fieldset>
+                    <legend>Novo Sistemas</legend>
+                    <div class="form-group has-feedback">
+                        <label>Nome</label>
+                        <input type="text" name="nome" placeholder="Digite o nome" ng-model="sistemaSelected.nome" required class="form-control">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Connection String</label>
+                        <input type="text" required class="form-control" name="connectionstring" placeholder="Digite a connection string" ng-model="sistemaSelected.connectionstring">
+                    </div>
+                    <div class="combobox ">
+                        <label>DataBase Tpype</label>
+                        <input type="text" required class="form-control" name="database" placeholder="Digite o nome" ng-model="sistemaSelected.databasetype">
+                    </div>
+
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+
+
+                            <a class="btn btn-default" ng-href="#/sistemas">Cancelar</a>
+
+                            <input type="submit" class="btn btn-primary" value="Salvar" />
+
+
+                        </div>
+
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div>{{message}}</div>
+    </div>
+    <div class="modal fade" data-backdrop="static" id="SucessoModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>Ação realizada com sucesso.</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <a class="btn btn-default" ng-href="#/sistemas" >Ok</a>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</div>

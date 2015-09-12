@@ -1,0 +1,44 @@
+
+h1 { 
+	font-family: Verdana; 
+	font-size: 18pt; 
+}
+
+h2 { 
+	font-family: Verdana; 
+	font-size: 12pt;
+	margin-top: 24pt; 
+}
+
+h3 { 
+	font-family: Verdana; 
+	font-size: 10pt; 
+}
+
+p {
+	font-family: Verdana; 
+	line-height: 13pt;
+	font-size: 9pt; 
+}
+
+.codediv {
+	overflow-x: auto;
+	background-color: #EEEEEE;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	margin-top: 12pt;
+}
+
+pre.prettyprint {
+	border-width: 0px;
+}
+
+.hint {
+	background-color: #FFF0D0;
+	padding: 8px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+}
+

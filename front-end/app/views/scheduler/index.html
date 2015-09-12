@@ -1,0 +1,178 @@
+﻿<div ng-controller="schedulerController">
+
+    <!-- START table-responsive-->
+    
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="true">
+            <accordion-heading>
+
+                Nimbus Server
+                <!--<div id="search" class="col-sm-6 col">
+                    <form class=" form-inline" role="search">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </span>
+                            <input id="searchValue" type="text" class="form-control clearable" ng-model="searchValue" ng-minlength="1" placeholder="Job  Name" title="Job Name" />
+                        </div>
+                    </form>
+                </div>-->
+            </accordion-heading>
+
+            <div class="row">
+      
+
+   
+             
+                <div class="col-sm-6">
+
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Estatisticas</h3>
+                        </div>
+
+
+
+                        <div class="panel-body">
+                            {{scheduler.grupos }}
+                            <b>Running since: </b>{{scheduler.runningSince}}<br>
+                            <b>Total Jobs: </b>{{scheduler.jobGroups.totalJobs}}<br>
+                            <b>Executed Jobs: </b>{{scheduler.executedJobs}}
+                        </div>
+
+                    </div>
+                </div><!-- /.col-sm-4 -->
+                <div class="col-sm-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Propriedades</h3>
+                        </div>
+                        <div class="panel-body">
+                            <b>Name: </b>Nimbus Service v1.02<br>
+                            <b>Instance ID: </b>{{scheduler.instanceId}}<br>
+                            <b>Remote: </b>{{scheduler.isRemote}}<br>
+
+                        </div>
+                        
+                    </div>
+
+                </div><!-- /.col-sm-4 -->
+            </div>
+            <div class="row"><br>
+                <div class="col-sm-6">
+                    <label class="switch switch-lg">Server Status:
+                        <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
+                        <span></span>
+                    </label>
+                    <!--<b>Server Status: </b><input type="checkbox" checked data-toggle="toggle" data-onstyle="success">-->
+                </div>
+
+            </div>
+        </accordion-group>
+
+    </accordion>
+    <accordion-group ng-repeat="grupo in scheduler.jobGroups.grupos" is-open="true">
+        <accordion-heading>
+            {{grupo.name}}
+
+        </accordion-heading>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-sennit">
+                <tr>
+                    <th class="text-center">Nome</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Data Inicio</th>
+                    <th class="text-center">Data Fim</th>
+                    <th class="text-center">Disparo Anterior</th>
+                    <th class="text-center">Próximo Disparo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="job in grupo.jobs ">
+                    <td class="col-md-2">
+                        {{job.nomeLegivel | uppercase}}
+                    </td>
+                    <td class="col-md-2 text-center">
+                        <button id="playButton" type="button" ng-click="setSelected()" class="btn btn-default btn-xs">
+                            <i class="fa fa-folder-open"></i>
+                        </button>
+                        <button id="playButton" ng-hide="(job.State == 'Normal')" ng-click="setPlay()" type="button" class="btn btn-default btn-xs">
+                            <i class="fa fa-play"></i>
+                        </button>
+                        <button id="pauseButton" ng-hide="(job.State == 'Paused')" ng-click="setPause()" type="button" class="btn btn-default btn-xs">
+                            <i class="fa fa-pause"></i>
+                        </button>
+
+                    </td>
+                    <td class="col-md-2 text-center">
+                        {{job.firstFire}}
+
+                    </td>
+                    <td class="col-md-2 text-center">
+                        {{job.lastFire}}
+
+                    </td>
+                    <td class="col-md-2 text-center">
+                        {{job.previousFire}}
+
+                    </td>
+                    <td class="col-md-2 text-center">
+                        {{job.nextFire}}
+
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </accordion-group>
+    <div class="modal" id="IncluirModal" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div id="wizard-colaboradores">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Log Events for Nimbus Scheduler Job</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-content">
+
+
+
+                            <table id="example" class="display" data-page-length='5' cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Level</th>
+                                        <th>Data</th>
+                                        <th>Message</th>
+
+                                    </tr>
+                                </thead>
+
+                                <tfoot>
+                                    <tr>
+                                        <th>Level</th>
+                                        <th>Data</th>
+                                        <th>Message</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group ">
+                            <button class="btn btn-default" data-dismiss="modal">Fechar</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <!-- END table-responsive-->
+</div>
+

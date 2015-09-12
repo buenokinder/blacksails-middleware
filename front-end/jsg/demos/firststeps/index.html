@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html style="height:100%">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>JS Graph - First Steps</title>
+		<link href="prettify/prettify.css" type="text/css" rel="stylesheet" />
+		<link href="css/jsgfirststeps.css" rel="stylesheet">
+		<script type="application/javascript" src="loader.js"></script>
+		<script type="application/javascript" src="prettify/prettify.js"></script>	
+	</head>
+	<body onload="loadDemo()" style="overflow:hidden; height:100%; margin: 0px">
+		<div style="width:100%; height:100%">
+			<div id="graph" style="position: absolute; right:0px; width:50%; height:100%">
+				<canvas id="canvas1" tabindex="0" style="cursor:auto;">
+				</canvas>
+			</div>
+
+			<div id="guide" style="width:50%; height:100%; overflow-y:scroll">
+				<div id="content" style="width:95%; height:100%; margin: 8px">
+					<h1>First Steps with JS Graph</h1>
+					<h2>Introduction</h2>
+					<p>
+						JS Graph is a JavaScript library to visualize and modify any type of data, which can be represented by visual objects. The objects
+						can created dynamically from any data source using an API or based on user input. The library offers a rich API to create and manipulate graphical objects.
+						This way you can build a graphical representation
+						of your data and support the user to understand the information that you intend to display within your website. In addition
+						the library allows the modification of the graphical objects by the user. All objects can be edited in their geometrical outlines by
+						moving, resizing, rotating oder manipulating points of the object. A rich set of formatting options enable you to give our data
+						an appealing look. This First Steps Tutorial is intended to give you a short insight on the simplicity of the API.
+					</p>
+					<p>
+						The libary utilizes the canvas object, which is part of HTML5. The tutorial shows you how to create a graphical container that will
+						contain the graphical objects and attach it to a canvas item. Some graphical objects will also be created later during this tutorial. 
+						In addition the objects will be formatted and their coordinates will be changed. Finally relations between the objects will be created and the resulting 
+						drawing will be layouted using a hierarchical layouter.
+					</p>
+					<h2>Creating and Embedding a Graph</h2>
+					<p>
+						To create a graphical container you first need to create a canvas item in your web page. This is done by placing the following tag within
+						your website.
+					</p>
+					<div class="codediv">
+					<pre>&lt;canvas id=&quot;canvas1&quot; width=&quot;300px&quot; height=&quot;300px&quot; 
+			tabindex=&quot;0&quot; style=&quot;cursor:auto;&quot;&gt;&lt;/canvas&gt;</pre>						
+					</div>
+					<p>
+						This page also contains a canvas container. You can inspect the source code of this page to have another sample.
+						The next step, you have to achieve, is to create a <code>
+							GraphEditor</code>
+						and a <code>
+							Graph</code>
+						and attach this to the canvas. The <code>
+							GraphEditor</code>
+						is the binding container
+						for a drawing. The <code>
+							Graph</code> contains the data model of the drawing. It will be explained in more detail in the following section. To create those objects, you need to
+						insert the following code as a script on your page. This has to be done after the canvas item has been rendered. In this example,
+						it will be done in reaction to a call to <code>onWindowLoaded</code>, which we call after loading all the scripts:
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint">
+var graphEditor;
+var graph;
+
+function onWindowLoaded() {
+	graphEditor = new JSG.ui.GraphEditor("canvas1");
+	graph = new JSG.graph.model.Graph()
+	graphEditor.setGraph(graph);
+}</pre>
+					</div>
+					<p class="hint">
+						In this sample, we are dynamically loading all the necessary JavaScript Files and then call onWindowLoaded. Just take a look at "loader.js", if you are interested. This
+						is not a necessity. 
+					</p>
+					<p>
+						As you can see, the GraphEditor is created using the id of the canvas item. This is needed to attach the <code>GraphEditor</code> to the corresponding canvas. It is also possible to
+						have more than one drawing on a page. Then you need to attach a new <code>GraphEditor</code> to each canvas. The result should be a <code>GraphEditor</code> like you can see
+						it in the right half of this web page. It is also created this way. An empty page with a visible grid is displayed. The page can be scrolled and a 
+						selection rect can be defined using the mouse. Normally you would also see the scales, but it is hidden in our sample to save some space. So lets continue to create a drawing.
+					</p>
+					<p class="hint">
+						Please note that for simplicity all following samples depend on the precondition that grapheditor and graph are defined global. In a real application this should be handled
+						differently. Graph can also easily be retrieved from the GraphEditor. 
+					</p>
+					<h2>Creating a Drawing</h2>
+					<h3>Creating Nodes</h3>
+					<p>
+						Now we continue to create a <code>Node</code> on the drawing. This is achieved by creating a Shape for the visual appearance of the <code>Node</code> and creating the <code>Node</code> using the Shape.
+						As a first step a <code>RectangleShape</code> is created and being used to create a Node. Obviously some coordinates are needed to place the Node on the drawing area. Therefore an
+						origin is set and the extensions of the Node by setting the width and the height of the Node. All coordinate are given in 1/100th mm. Therefore 1000 units correspond 
+						to 1 cm on the Graph. Look at the following code to see how a couple of Nodes is created:
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="createNode"> </pre>
+					</div>
+					<p>
+						Now click on the button and the code will be executed and a Node will be added to the Graph on the right hand side.
+					</p>
+					<button type="button" onclick="sampleCode.createNode()">
+						Create Node
+					</button>
+					<p>
+						The objects have been created and are available for editing. You can select them and move them around or edit them, changing size and rotation.
+					</p>
+					<h3>Creating Edges</h3>
+					<p>
+						As a next step, two edges will be created. One simple edge and an orthogonal edge. The idea is the similar as if you create a node. We do offer two different 
+						edge types, the simple or straight Edge and the orthogonal Edge:
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="createEdge"> </pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.createEdge()">
+						Create Edge
+					</button>
+					<p>
+						Now we will create a link between two objects. This is achieved by adding a port to the source and the target node and connecting the line with those ports by assigning 
+						the edge start and end point to the target and source port:
+					</p>
+					<div class="codediv">
+					<pre class="prettyprint" source="createLink"> </pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.createLink()">
+						Create Link
+					</button>
+					<p>Finally we create a little drawing with even more object types. It will contain a sketch of a truck and create different node types like ellipses, polygon, text and a link. 
+						The polygon needs the different points that define the shape of the polygon. Those points must be set relative to the origin and size of the polygons bounding box. 
+						Here we are creating the coordinates using a utility function that creates polygon coordinates with a given factor between 0 and 1, which defines the relative position
+						of the coordinate within the polgyon where 0 is left or top and 1 is right or bottom and any factor is proportionally between.
+					</p>
+					<p>
+						The order of creation of the nodes is important as those items created first, will be drawn first and covered by objects created after those, if they overlap. To create
+						the window of the truck, another way of creating graphic objects is used (createItemFromString). This function allows to create useful and often used predefined library objects that are defined within
+						the JS Script library. 
+					</p> 
+					<div class="codediv">
+					<pre class="prettyprint" source="createDrawing"> </pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.createDrawing()">
+						Create Drawing
+					</button>
+					<h2>Working with Nodes and Edges</h2>
+					<p>
+						After the initial creation of a drawing, usually some formatting needs to be applied. Following you will see an example how formats can be applied to a graphical object. 
+						Once the objects are created, they can be edited by the user. You can move objects around, rotate or resize them. Eventually a change of the underlying data needs to be
+						reflected within the drawing. This can be achieved by changing the object geometrical appearance. This will be demonstrated in the final chapter of this tutorial.
+					</p>
+					<h3>Formatting</h3>
+					<p>
+						Every node has a format that defines the line and fill format of the node
+						and another object to define the text formatting. The formatting is changed by obtaining the format object and setting a new format option using the available format
+						methods. There are various fill format options like solid fill, gradient and image fill. You can apply shadows and set a line format. Texts can use a font description provided
+						by the developer varying font name, size and style. Using the nodes of the previous sample some formatting for the objects will be applied in the following sample. 
+					</p>
+					<div class="codediv">
+						<pre class="prettyprint" source="formatDrawing"> </pre>
+					</div>
+					<br/>
+					<button type="button" onclick="sampleCode.formatDrawing()">
+						Format Drawing
+					</button>
+					<h3>Modifying object placement</h3>
+					<p>
+						The placement or other geometrical properties of the nodes can be changed after the nodes have been created. This is useful to reflect any data change. 
+						In the following sample the truck placement will be changed. The rotation of the trailer label will also be changed. For this sample the truck of the previous sample is
+						 generated and then all objects are moved by utilizimg a simple animation. 
+					</p>
+					<div class="codediv">
+						<pre class="prettyprint" source="moveDrawing"> </pre>
+					</div>
+					<br/>
+						<button type="button" onclick="sampleCode.moveDrawing()">
+							Move Drawing
+						</button>
+					<p>
+						This concludes the First Steps Tutorial. To continue you can step forward to the next Tutorial. It will explain the coordinate system of JS Graph and the object placement. 
+						In addition the concept of node containers and formulas will be explained.
+					</p>
+					<p>
+						Follow <a href="coordinates.html">JS Graph - Coordinates</a> to continue.
+					</p>
+					<p>&nbsp;</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

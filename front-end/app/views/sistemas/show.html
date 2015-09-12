@@ -1,0 +1,96 @@
+﻿<div data-ng-controller="sistemasEditController as sistemaCtrl">
+    <div class="panel panel-default" data-ng-controller="sistemasShowController as sistemaCtrl">
+        <div class="panel-body">
+            <tabset justified="true">
+                <tab heading="Geral">
+                    <div class="panel-body">
+                        <form name="sistemaForm" ng-submit="sistemaForm.$valid &&  addSistema(sistemaSelected)" novalidate>
+                            <fieldset>
+                                <legend>Editar Sistema</legend>
+                                <div class="form-group has-feedback">
+                                    <label>Nome</label>
+                                    <input type="text" required class="form-control" name="nome" placeholder="Digite o nome" ng-model="sistemaSelected.nome" >
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Connection String</label>
+                                    <input type="text" required class="form-control" name="connectionstring" placeholder="Digite a connection string" ng-model="sistemaSelected.connectionstring">
+                                </div>
+                                <div class="combobox ">
+                                    <label>DataBase Tpype</label>
+                                    <input type="text" required class="form-control" name="database" placeholder="Digite o nome" ng-model="sistemaSelected.databasetype">
+                                </div>
+
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-sm-offset-2">
+                                        <a class="btn btn-default" ng-href="#/sistemas">Cancelar</a>
+                                        <input type="submit" class="btn btn-primary" value="Salvar" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div>{{message}}</div>
+                </tab>
+                <tab heading="Autenticação">
+                    <form name="autenticacaoForm" ng-submit="autenticacaoForm.$valid &&  addAutenticacao(autenticacao)" novalidate>
+                        <fieldset>
+
+
+
+                            <legend>Editar Sistema</legend>
+
+
+        
+        <div class="form-group">
+            <label>Query</label>
+            <textarea class="form-control" name="connectionstring" placeholder="Digite a connection string" ng-model="autenticacao.query" />
+        </div>
+        <div class="form-group has-feedback">
+
+            <label>Conexao</label>
+            <select name="conexao" class="form-control"
+                    ng-model="conexao" ng-change="change(conexao)"  ng-options="conexao.nome for conexao in conexoes  track by  conexao.id"></select>
+
+        </div>
+
+        </fieldset>
+        <fieldset>
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-2">
+                    
+                    <input type="submit" class="btn btn-primary" value="Gravar Autenticação" />
+                </div>
+            </div>
+        </fieldset>
+        </form>
+    </div>
+    <div>{{message}}</div>
+
+    </tab>
+
+    </tabset>
+
+</div>
+
+</div>
+
+<div class="modal fade" data-backdrop="static" id="SucessoModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <h4>Ação realizada com sucesso.</h4>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" class="btn btn-default" ng-click="Ok()">Ok</button>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+</div>

@@ -1,0 +1,61 @@
+﻿<div data-ng-controller="sistemasEditController as sistemaCtrl">
+    <div class="panel panel-default" data-ng-controller="sistemasEditController as sistemaCtrl">
+        <div class="panel-heading">Formulário - Sistemas</div>
+        <div class="panel-body">
+            <form name="sistemaForm" ng-submit="sistemaForm.$valid &&  addSistema(sistemaSelected)" novalidate>
+                <div class="form-group has-feedback">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" name="nome" placeholder="Digite o nome" ng-model="sistemaSelected.nome" required>
+                    <span class="fa fa-lock form-control-feedback text-muted"></span>
+                </div>
+                <div class="form-group">
+                    <label>Connection String</label>
+                    <input type="text" class="form-control" name="connection" placeholder="Digite a connection string" ng-model="sistemaSelected.connection" required>
+                </div>
+                <div class="combobox ">
+                    <label>DataBase Tpype</label>
+                    <input type="text" class="form-control" name="database" placeholder="Digite o nome" ng-model="sistemaSelected.database">
+                </div>
+                <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+
+                <input type="submit" class="btn btn-default" value="Salvar" />
+            </form>
+        </div>
+        <div>{{message}}</div>
+    </div>
+
+    <div class="modal fade" data-backdrop="static" id="ConfirmacaoModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>Deseja realmente incluir esse registro?</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-default" ng-click="Save()">Ok</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" data-backdrop="static" id="SucessoModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>Ação realizada com sucesso.</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" ng-click=" Sucesso">Ok</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</div>

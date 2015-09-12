@@ -1,0 +1,52 @@
+<div data-ng-controller="conexoesEditController as conexoesCtrl">
+    <div class="panel panel-default" data-ng-controller="conexoesShowController as conexoesCtrl">
+        
+        <div class="panel-body">
+            <form name="conexoesForm" ng-submit="conexoesForm.$valid  &&  addConexao(conexaoSelected)" novalidate>
+                <fieldset>
+                    <legend>Editar Conexão</legend>
+
+                    <div class="form-group  has-feedback">
+                        <label>Nome</label>
+
+                        <input type="text" required class="form-control" name="nome" placeholder="Digite o nome" ng-model="conexaoSelected.nome" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>String de Conexão</label>
+
+                        <input type="text" required class="form-control" name="nome" placeholder="Digite o nome" ng-model="conexaoSelected.stringconexao">
+                    </div>
+
+                </fieldset>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <a class="btn btn-default" ng-href="#/conexoes">Cancelar</a>
+
+                            <input type="submit" class="btn btn-primary" value="Salvar" />
+
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div>{{message}}</div>
+    </div>
+    <div class="modal fade" data-backdrop="static" id="SucessoModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>Ação realizada com sucesso.</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" ng-click="Ok()">Ok</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</div>

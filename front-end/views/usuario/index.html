@@ -1,0 +1,73 @@
+﻿<div class="panel panel-default ng-scope">
+    <!-- START table-responsive-->
+
+    <div class="form-group">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-sennit">
+                <tr>
+                    <th class="text-center">Nome</th>
+                    <th class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="sistema in sistemas">
+                    <td class="col-md-10">
+                        {{ sistema.nome }}
+                    </td>
+                    <td class="col-md-2 text-center">
+                        <a href="#/sistemas/{{ sistema.id }}" class="mb-sm btn btn-primary">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+
+                        <button type="button" class="mb-sm btn btn-danger" ng-click="delete(sistema)" aria-label="Left Align">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- END table-responsive-->
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="input-group">
+                    <input type="text" placeholder="Pesquisar..." class="input-sm form-control">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-sm btn-default">Pesquisar</button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-8"></div>
+            <div class="col-lg-2">
+                <div class="input-group pull-right">
+
+                    <span class="input-group-btn">
+                        <a class="btn btn-sm btn-default" ng-href="#/sistemas/new">Novo</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" data-backdrop="static" id="ConfirmacaoModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <h4>Deseja realmente excluir esse registro?</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-default" ng-click=" deleteConfirmed()">Sim</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+</div>
